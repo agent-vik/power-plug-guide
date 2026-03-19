@@ -280,9 +280,10 @@
             min-height: 130px;
         }
 
-        .plug-svg-container svg {
+        .plug-svg-container img {
             max-width: 100px;
             max-height: 100px;
+            border-radius: 8px;
         }
 
         .plug-info {
@@ -748,7 +749,7 @@
 
     <footer class="footer">
         <p data-i18n="footer_title">World Power Plug Guide</p>
-        <p data-i18n="footer_source">Data sources: IEC, World Standards</p>
+        <p data-i18n="footer_source">Data sources: <a href="https://www.iec.ch/" target="_blank">IEC</a>, <a href="https://www.worldstandards.eu/electricity/plugs-and-sockets/" target="_blank">World Standards</a></p>
         <p style="margin-top: 15px;">
             <span data-i18n="footer_created">Created by</span> <a href="https://github.com/agent-vik" target="_blank">Agent Vik</a> & <a href="https://github.com/greenzorro" target="_blank">Victor42</a> |
             <a href="https://github.com/agent-vik/power-plug-guide" target="_blank">Code</a>
@@ -929,7 +930,7 @@
                 H: { name: 'Israeli 3-pin', desc: 'Three round pins in Y-shaped arrangement. Modern versions also accept Type C flat pins.' },
                 I: { name: 'Australian 3-pin', desc: 'Two oblique flat pins forming an inverted V, plus vertical ground pin. China uses both Type A (parallel pins) and Type I (grounded version).' },
                 J: { name: 'Swiss 3-pin', desc: 'Three round pins with hexagonal socket design that prevents incorrect insertion.' },
-                K: { name: 'Danish 3-pin', desc: 'Similar to Type E but with ground pin on plug rather than socket. Denmark now also accepts Type F plugs.' },
+                K: { name: 'Danish 3-pin', desc: 'Similar to Type E but with ground pin on plug rather than socket. Note: Type F (Schuko) plugs can fit but may lose ground connection.' },
                 L: { name: 'Italian 3-round', desc: 'Three round pins in a row. Italy has two variants: 10A (smaller spacing) and 16A (larger spacing).' },
                 M: { name: 'South African 3-round', desc: 'Similar to Type D but with larger pins. South Africa is gradually transitioning to Type N.' },
                 N: { name: 'Brazilian 3-pin', desc: 'Based on IEC 60906-1 international standard with three round pins. Sockets accept Type C 2-pin plugs. Considered a candidate for future global standard.' },
@@ -946,7 +947,7 @@
                 H: { name: '以色列标三脚插头', desc: '三个圆形引脚呈Y形排列。独特的以色列标准，现代版本也兼容Type C的扁脚。' },
                 I: { name: '澳标三脚斜插头', desc: '两个斜向的扁平引脚呈倒V字形，加一个垂直的接地引脚。中国同时使用Type A（平行扁脚）和Type I（接地版本）。' },
                 J: { name: '瑞士标三脚插头', desc: '三个圆形引脚，与Type C类似但增加了接地引脚。插座为六边形设计，可以防止插错方向。' },
-                K: { name: '丹麦标三脚插头', desc: '类似Type E，但接地引脚在插头上而非插座上。丹麦现在也接受Type F插头。' },
+                K: { name: '丹麦标三脚插头', desc: '类似Type E，但接地引脚在插头上而非插座上。注意：F型Schuko插头可以插入但可能失去接地保护。' },
                 L: { name: '意大利标三脚圆插头', desc: '三个圆形引脚排成一行。意大利有两种规格：10A（小间距）和16A（大间距）。' },
                 M: { name: '南非标三脚圆插头', desc: '与Type D相似但引脚更大，接地引脚比电源引脚更粗。南非正在逐步过渡到Type N。' },
                 N: { name: '巴西标三脚圆插头', desc: '基于IEC 60906-1国际标准，三个圆形引脚呈三角形排列。插座兼容Type C两脚圆插头。被认为是未来的国际统一标准候选。' },
@@ -1065,9 +1066,8 @@
             // Countries section
             document.querySelector('#countries h2').textContent = t('countries_title');
             
-            // Footer
+            // Footer - only update title, source already has links in HTML
             document.querySelector('.footer p').textContent = t('footer_title');
-            document.querySelectorAll('.footer p')[1].textContent = t('footer_source');
         }
 
         // ========== Plug Types Data ==========
@@ -1080,11 +1080,7 @@
                 frequency: '60Hz',
                 countries: ['美国', '加拿大', '墨西哥', '日本', '台湾', '泰国', '越南', '菲律宾'],
                 description: '两个平行的扁脚，无接地引脚。由Harvey Hubbell于1904年发明，是世界上最古老的插头设计之一。',
-                svg: `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="10" y="10" width="80" height="80" rx="8" fill="#1e293b" stroke="#64748b" stroke-width="2"/>
-                    <rect x="25" y="25" width="8" height="35" rx="2" fill="#f1f5f9"/>
-                    <rect x="67" y="25" width="8" height="35" rx="2" fill="#f1f5f9"/>
-                </svg>`
+                image: 'assets/plug-type-A.jpg'
             },
             {
                 type: 'B',
@@ -1094,12 +1090,7 @@
                 frequency: '60Hz',
                 countries: ['美国', '加拿大', '墨西哥', '哥斯达黎加', '危地马拉'],
                 description: '在Type A基础上增加了一个圆形接地引脚，提供更好的安全性。接地引脚比两个扁平引脚更长，确保先接地后通电。',
-                svg: `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="10" y="10" width="80" height="80" rx="8" fill="#1e293b" stroke="#64748b" stroke-width="2"/>
-                    <rect x="25" y="20" width="8" height="30" rx="2" fill="#f1f5f9"/>
-                    <rect x="67" y="20" width="8" height="30" rx="2" fill="#f1f5f9"/>
-                    <circle cx="50" cy="65" r="6" fill="#f1f5f9"/>
-                </svg>`
+                image: 'assets/plug-type-B.jpg'
             },
             {
                 type: 'C',
@@ -1109,11 +1100,7 @@
                 frequency: '50Hz',
                 countries: ['德国', '法国', '意大利', '西班牙', '荷兰', '比利时', '奥地利', '瑞士', '葡萄牙', '希腊', '土耳其', '俄罗斯'],
                 description: '也称为Europlug，两个圆形引脚。这是欧洲最常见的插头类型，设计精巧，可以适配多种欧洲插座。',
-                svg: `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="10" y="10" width="80" height="80" rx="8" fill="#1e293b" stroke="#64748b" stroke-width="2"/>
-                    <circle cx="35" cy="45" r="8" fill="#f1f5f9"/>
-                    <circle cx="65" cy="45" r="8" fill="#f1f5f9"/>
-                </svg>`
+                image: 'assets/plug-type-C.jpg'
             },
             {
                 type: 'D',
@@ -1123,12 +1110,7 @@
                 frequency: '50Hz',
                 countries: ['印度', '尼泊尔', '巴基斯坦', '斯里兰卡', '孟加拉国', '缅甸'],
                 description: '三个圆形引脚呈三角形排列，是旧版英国标准的衍生设计。接地引脚比电源引脚更粗，额定电流通常为6A。',
-                svg: `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="10" y="10" width="80" height="80" rx="8" fill="#1e293b" stroke="#64748b" stroke-width="2"/>
-                    <circle cx="50" cy="30" r="9" fill="#f1f5f9"/>
-                    <circle cx="33" cy="58" r="6" fill="#f1f5f9"/>
-                    <circle cx="67" cy="58" r="6" fill="#f1f5f9"/>
-                </svg>`
+                image: 'assets/plug-type-D.jpg'
             },
             {
                 type: 'E',
@@ -1138,12 +1120,7 @@
                 frequency: '50Hz',
                 countries: ['法国', '比利时', '波兰', '捷克', '斯洛伐克', '突尼斯', '摩洛哥'],
                 description: '插座有两个圆孔和一个凸出的接地引脚（插座上凸出的PIN）。这种设计使接地先于电源接通，安全性更高。与Type F不兼容。',
-                svg: `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="10" y="10" width="80" height="80" rx="8" fill="#1e293b" stroke="#64748b" stroke-width="2"/>
-                    <circle cx="35" cy="35" r="8" fill="#f1f5f9"/>
-                    <circle cx="65" cy="35" r="8" fill="#f1f5f9"/>
-                    <circle cx="50" cy="62" r="5" fill="#f1f5f9"/>
-                </svg>`
+                image: 'assets/plug-type-E.jpg'
             },
             {
                 type: 'F',
@@ -1153,13 +1130,7 @@
                 frequency: '50Hz',
                 countries: ['德国', '奥地利', '荷兰', '瑞典', '挪威', '芬兰', '俄罗斯', '乌克兰'],
                 description: '也称为Schuko插头，两个圆形引脚加上两侧的接地夹。这是欧洲大陆最通用的接地插头标准，额定电流16A。',
-                svg: `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="10" y="10" width="80" height="80" rx="8" fill="#1e293b" stroke="#64748b" stroke-width="2"/>
-                    <circle cx="35" cy="42" r="8" fill="#f1f5f9"/>
-                    <circle cx="65" cy="42" r="8" fill="#f1f5f9"/>
-                    <rect x="12" y="55" width="12" height="20" rx="3" fill="#f1f5f9"/>
-                    <rect x="76" y="55" width="12" height="20" rx="3" fill="#f1f5f9"/>
-                </svg>`
+                image: 'assets/plug-type-F.jpg'
             },
             {
                 type: 'G',
@@ -1169,12 +1140,7 @@
                 frequency: '50Hz',
                 countries: ['英国', '爱尔兰', '香港', '新加坡', '马来西亚', '沙特阿拉伯', '阿联酋', '卡塔尔'],
                 description: '三个长方形引脚呈三角形排列，带有保险丝保护。设计精良，安全性极高。是世界上识别度最高的插头之一。',
-                svg: `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="10" y="10" width="80" height="80" rx="8" fill="#1e293b" stroke="#64748b" stroke-width="2"/>
-                    <rect x="44" y="22" width="12" height="25" rx="2" fill="#f1f5f9"/>
-                    <rect x="28" y="57" width="10" height="20" rx="2" fill="#f1f5f9"/>
-                    <rect x="62" y="57" width="10" height="20" rx="2" fill="#f1f5f9"/>
-                </svg>`
+                image: 'assets/plug-type-G.jpg'
             },
             {
                 type: 'H',
@@ -1184,12 +1150,7 @@
                 frequency: '50Hz',
                 countries: ['以色列', '巴勒斯坦'],
                 description: '三个圆形引脚呈Y形排列。独特的以色列标准，现代版本也兼容Type C的扁脚。额定电流16A。',
-                svg: `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="10" y="10" width="80" height="80" rx="8" fill="#1e293b" stroke="#64748b" stroke-width="2"/>
-                    <circle cx="50" cy="30" r="7" fill="#f1f5f9"/>
-                    <circle cx="30" cy="60" r="7" fill="#f1f5f9"/>
-                    <circle cx="70" cy="60" r="7" fill="#f1f5f9"/>
-                </svg>`
+                image: 'assets/plug-type-H.jpg'
             },
             {
                 type: 'I',
@@ -1199,12 +1160,7 @@
                 frequency: '50Hz',
                 countries: ['澳大利亚', '新西兰', '中国', '阿根廷', '巴布亚新几内亚', '斐济'],
                 description: '两个斜向的扁平引脚呈倒V字形，加一个垂直的接地引脚。中国同时使用Type A（平行扁脚）和Type I（接地版本）。',
-                svg: `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="10" y="10" width="80" height="80" rx="8" fill="#1e293b" stroke="#64748b" stroke-width="2"/>
-                    <rect x="25" y="28" width="8" height="28" rx="2" fill="#f1f5f9" transform="rotate(30 29 42)"/>
-                    <rect x="67" y="28" width="8" height="28" rx="2" fill="#f1f5f9" transform="rotate(-30 71 42)"/>
-                    <rect x="46" y="55" width="8" height="20" rx="2" fill="#f1f5f9"/>
-                </svg>`
+                image: 'assets/plug-type-I.jpg'
             },
             {
                 type: 'J',
@@ -1214,12 +1170,7 @@
                 frequency: '50Hz',
                 countries: ['瑞士', '列支敦士登'],
                 description: '三个圆形引脚，与Type C类似但增加了接地引脚。插座为六边形设计，可以防止插错方向。',
-                svg: `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="10" y="10" width="80" height="80" rx="8" fill="#1e293b" stroke="#64748b" stroke-width="2"/>
-                    <circle cx="35" cy="38" r="6" fill="#f1f5f9"/>
-                    <circle cx="65" cy="38" r="6" fill="#f1f5f9"/>
-                    <circle cx="50" cy="58" r="6" fill="#f1f5f9"/>
-                </svg>`
+                image: 'assets/plug-type-J.jpg'
             },
             {
                 type: 'K',
@@ -1228,13 +1179,8 @@
                 voltage: '220-240V',
                 frequency: '50Hz',
                 countries: ['丹麦', '格陵兰'],
-                description: '类似Type E，但接地引脚在插头上而非插座上。丹麦现在也接受Type F插头。',
-                svg: `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="10" y="10" width="80" height="80" rx="8" fill="#1e293b" stroke="#64748b" stroke-width="2"/>
-                    <circle cx="35" cy="35" r="8" fill="#f1f5f9"/>
-                    <circle cx="65" cy="35" r="8" fill="#f1f5f9"/>
-                    <rect x="46" y="52" width="8" height="18" rx="2" fill="#f1f5f9"/>
-                </svg>`
+                description: '类似Type E，但接地引脚在插头上而非插座上。注意：F型Schuko插头可以插入但可能失去接地保护。',
+                image: 'assets/plug-type-K.jpg'
             },
             {
                 type: 'L',
@@ -1244,12 +1190,7 @@
                 frequency: '50Hz',
                 countries: ['意大利', '智利', '古巴'],
                 description: '三个圆形引脚排成一行。意大利有两种规格：10A（小间距）和16A（大间距）。现代意大利插座通常同时兼容两种。',
-                svg: `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="10" y="10" width="80" height="80" rx="8" fill="#1e293b" stroke="#64748b" stroke-width="2"/>
-                    <circle cx="25" cy="50" r="7" fill="#f1f5f9"/>
-                    <circle cx="50" cy="50" r="7" fill="#f1f5f9"/>
-                    <circle cx="75" cy="50" r="7" fill="#f1f5f9"/>
-                </svg>`
+                image: 'assets/plug-type-L.jpg'
             },
             {
                 type: 'M',
@@ -1259,12 +1200,7 @@
                 frequency: '50Hz',
                 countries: ['南非', '斯威士兰', '莱索托', '博茨瓦纳', '莫桑比克'],
                 description: '与Type D相似但引脚更大，接地引脚比电源引脚更粗。额定电流15A，是旧版英国标准的另一衍生版本。南非正在逐步过渡到Type N。',
-                svg: `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="10" y="10" width="80" height="80" rx="8" fill="#1e293b" stroke="#64748b" stroke-width="2"/>
-                    <circle cx="50" cy="28" r="10" fill="#f1f5f9"/>
-                    <circle cx="30" cy="60" r="8" fill="#f1f5f9"/>
-                    <circle cx="70" cy="60" r="8" fill="#f1f5f9"/>
-                </svg>`
+                image: 'assets/plug-type-M.jpg'
             },
             {
                 type: 'N',
@@ -1274,12 +1210,7 @@
                 frequency: '60Hz',
                 countries: ['巴西'],
                 description: '基于IEC 60906-1国际标准，三个圆形引脚呈三角形排列。插座兼容Type C两脚圆插头。巴西各地电压不同，从127V到220V都有。',
-                svg: `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="10" y="10" width="80" height="80" rx="8" fill="#1e293b" stroke="#64748b" stroke-width="2"/>
-                    <circle cx="35" cy="35" r="8" fill="#f1f5f9"/>
-                    <circle cx="65" cy="35" r="8" fill="#f1f5f9"/>
-                    <circle cx="50" cy="62" r="5" fill="#f1f5f9"/>
-                </svg>`
+                image: 'assets/plug-type-N.jpg'
             },
             {
                 type: 'O',
@@ -1289,17 +1220,12 @@
                 frequency: '50Hz',
                 countries: ['泰国'],
                 description: '泰国新标准TIS 166-2549，基于IEC 60906-1国际标准。插座有两个圆孔和一个凸出的接地引脚，正在逐步推广中。',
-                svg: `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="10" y="10" width="80" height="80" rx="8" fill="#1e293b" stroke="#64748b" stroke-width="2"/>
-                    <circle cx="35" cy="35" r="7" fill="#f1f5f9"/>
-                    <circle cx="65" cy="35" r="7" fill="#f1f5f9"/>
-                    <circle cx="50" cy="60" r="5" fill="#f1f5f9"/>
-                </svg>`
+                image: 'assets/plug-type-O.jpg'
             }
         ];
 
         const countries = [
-            { name: '中国', plugs: 'A, C, I', voltage: '220V', frequency: '50Hz' },
+            { name: '中国', plugs: 'A, I', voltage: '230V', frequency: '50Hz' },
             { name: '美国', plugs: 'A, B', voltage: '120V', frequency: '60Hz' },
             { name: '日本', plugs: 'A, B', voltage: '100V', frequency: '50/60Hz' },
             { name: '英国', plugs: 'G', voltage: '230V', frequency: '50Hz' },
@@ -1307,8 +1233,8 @@
             { name: '法国', plugs: 'C, E', voltage: '230V', frequency: '50Hz' },
             { name: '澳大利亚', plugs: 'I', voltage: '230V', frequency: '50Hz' },
             { name: '加拿大', plugs: 'A, B', voltage: '120V', frequency: '60Hz' },
-            { name: '韩国', plugs: 'C, F', voltage: '220V', frequency: '60Hz' },
-            { name: '印度', plugs: 'C, D, M', voltage: '230V', frequency: '50Hz' },
+            { name: '韩国', plugs: 'C, F', voltage: '230V', frequency: '60Hz' },
+            { name: '印度', plugs: 'D, M', voltage: '230V', frequency: '50Hz' },
             { name: '巴西', plugs: 'C, N', voltage: '127/220V', frequency: '60Hz' },
             { name: '俄罗斯', plugs: 'C, F', voltage: '230V', frequency: '50Hz' },
             { name: '意大利', plugs: 'C, F, L', voltage: '230V', frequency: '50Hz' },
@@ -1316,7 +1242,7 @@
             { name: '泰国', plugs: 'A, B, C, O', voltage: '220V', frequency: '50Hz' },
             { name: '新加坡', plugs: 'G', voltage: '230V', frequency: '50Hz' },
             { name: '马来西亚', plugs: 'G', voltage: '230V', frequency: '50Hz' },
-            { name: '香港', plugs: 'G, M', voltage: '220V', frequency: '50Hz' },
+            { name: '香港', plugs: 'G', voltage: '230V', frequency: '50Hz' },
             { name: '台湾', plugs: 'A, B', voltage: '110V', frequency: '60Hz' },
             { name: '南非', plugs: 'C, M, N', voltage: '230V', frequency: '50Hz' },
             { name: '墨西哥', plugs: 'A, B', voltage: '127V', frequency: '60Hz' },
@@ -1329,16 +1255,16 @@
             { name: '波兰', plugs: 'C, E', voltage: '230V', frequency: '50Hz' },
             { name: '土耳其', plugs: 'C, F', voltage: '230V', frequency: '50Hz' },
             { name: '以色列', plugs: 'C, H', voltage: '230V', frequency: '50Hz' },
-            { name: '阿根廷', plugs: 'C, I', voltage: '220V', frequency: '50Hz' },
-            { name: '智利', plugs: 'C, L', voltage: '220V', frequency: '50Hz' },
+            { name: '阿根廷', plugs: 'I', voltage: '230V', frequency: '50Hz' },
+            { name: '智利', plugs: 'C, L', voltage: '230V', frequency: '50Hz' },
             { name: '新西兰', plugs: 'I', voltage: '230V', frequency: '50Hz' },
             { name: '菲律宾', plugs: 'A, B, C', voltage: '220V', frequency: '60Hz' },
             { name: '越南', plugs: 'A, B, C', voltage: '220V', frequency: '50Hz' },
             { name: '印度尼西亚', plugs: 'C, F', voltage: '230V', frequency: '50Hz' },
-            { name: '埃及', plugs: 'C, F', voltage: '220V', frequency: '50Hz' },
+            { name: '埃及', plugs: 'C, F', voltage: '230V', frequency: '50Hz' },
             { name: '尼日利亚', plugs: 'D, G', voltage: '230V', frequency: '50Hz' },
             { name: '肯尼亚', plugs: 'G', voltage: '240V', frequency: '50Hz' },
-            { name: '摩洛哥', plugs: 'C, E', voltage: '220V', frequency: '50Hz' }
+            { name: '摩洛哥', plugs: 'C, E', voltage: '230V', frequency: '50Hz' }
         ];
 
         function renderPlugCards(filter = 'all', searchTerm = '') {
@@ -1372,7 +1298,7 @@
                             <span class="plug-type-badge">${plug.type}</span>
                             <span class="plug-name">${plugTrans.name}</span>
                         </div>
-                        <div class="plug-svg-container">${plug.svg}</div>
+                        <div class="plug-svg-container"><img src="${plug.image}" alt="Type ${plug.type} plug"></div>
                         <div class="plug-info">
                             <p><span class="label">${t('label_voltage')}</span><span class="value">${plug.voltage}</span></p>
                             <p><span class="label">${t('label_frequency')}</span><span class="value">${plug.frequency}</span></p>
