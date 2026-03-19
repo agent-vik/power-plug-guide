@@ -932,12 +932,12 @@
                 F: { name: 'German Schuko', desc: 'Two round pins with side grounding clips. Also called Schuko, the most common grounded plug standard in continental Europe.' },
                 G: { name: 'British 3-rectangular', desc: 'Three rectangular pins in triangular arrangement with built-in fuse. One of the most recognizable plug designs worldwide.' },
                 H: { name: 'Israeli 3-pin', desc: 'Three round pins in Y-shaped arrangement. Modern versions also accept Type C flat pins.' },
-                I: { name: 'Australian 3-pin', desc: 'Two oblique flat pins plus vertical ground pin. China uses a simplified version with parallel flat pins.' },
+                I: { name: 'Australian 3-pin', desc: 'Two oblique flat pins forming an inverted V, plus vertical ground pin. China uses both Type A (parallel pins) and Type I (grounded version).' },
                 J: { name: 'Swiss 3-pin', desc: 'Three round pins with hexagonal socket design that prevents incorrect insertion.' },
                 K: { name: 'Danish 3-pin', desc: 'Similar to Type E but with ground pin on plug rather than socket. Denmark now also accepts Type F plugs.' },
                 L: { name: 'Italian 3-round', desc: 'Three round pins in a row. Italy has two variants: 10A (smaller spacing) and 16A (larger spacing).' },
                 M: { name: 'South African 3-round', desc: 'Similar to Type D but with larger pins. South Africa is gradually transitioning to Type N.' },
-                N: { name: 'Brazilian 2-pin', desc: 'Based on IEC 60906-1 international standard. Considered a candidate for future global standard.' },
+                N: { name: 'Brazilian 3-pin', desc: 'Based on IEC 60906-1 international standard with three round pins. Sockets accept Type C 2-pin plugs. Considered a candidate for future global standard.' },
                 O: { name: 'Thai 3-pin', desc: 'Thai new standard based on IEC 60906-1, gradually being adopted alongside existing Type A/B/C sockets.' }
             },
             zh: {
@@ -949,12 +949,12 @@
                 F: { name: '德标两脚圆插头', desc: '也称为Schuko插头，两个圆形引脚加上两侧的接地夹。这是欧洲大陆最通用的接地插头标准，额定电流16A。' },
                 G: { name: '英标三脚方插头', desc: '三个长方形引脚呈三角形排列，带有保险丝保护。设计精良，安全性极高。是世界上识别度最高的插头之一。' },
                 H: { name: '以色列标三脚插头', desc: '三个圆形引脚呈Y形排列。独特的以色列标准，现代版本也兼容Type C的扁脚。' },
-                I: { name: '澳标三脚斜插头', desc: '两个斜向的扁平引脚加一个垂直的接地引脚。中国使用的是简化版本，两个扁脚平行排列。' },
+                I: { name: '澳标三脚斜插头', desc: '两个斜向的扁平引脚呈倒V字形，加一个垂直的接地引脚。中国同时使用Type A（平行扁脚）和Type I（接地版本）。' },
                 J: { name: '瑞士标三脚插头', desc: '三个圆形引脚，与Type C类似但增加了接地引脚。插座为六边形设计，可以防止插错方向。' },
                 K: { name: '丹麦标三脚插头', desc: '类似Type E，但接地引脚在插头上而非插座上。丹麦现在也接受Type F插头。' },
                 L: { name: '意大利标三脚圆插头', desc: '三个圆形引脚排成一行。意大利有两种规格：10A（小间距）和16A（大间距）。' },
                 M: { name: '南非标三脚圆插头', desc: '与Type D相似但引脚更大，接地引脚比电源引脚更粗。南非正在逐步过渡到Type N。' },
-                N: { name: '巴西标两脚圆插头', desc: '基于IEC 60906-1国际标准设计。被认为是未来的国际统一标准候选。' },
+                N: { name: '巴西标三脚圆插头', desc: '基于IEC 60906-1国际标准，三个圆形引脚呈三角形排列。插座兼容Type C两脚圆插头。被认为是未来的国际统一标准候选。' },
                 O: { name: '泰国三脚圆插头', desc: '泰国新标准，基于IEC 60906-1国际标准。正在逐步推广中。' }
             }
         };
@@ -1203,7 +1203,7 @@
                 voltage: '220-240V',
                 frequency: '50Hz',
                 countries: ['澳大利亚', '新西兰', '中国', '阿根廷', '巴布亚新几内亚', '斐济'],
-                description: '两个斜向的扁平引脚加一个垂直的接地引脚。中国使用的是简化版本，两个扁脚平行排列。',
+                description: '两个斜向的扁平引脚呈倒V字形，加一个垂直的接地引脚。中国同时使用Type A（平行扁脚）和Type I（接地版本）。',
                 svg: `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
                     <rect x="10" y="10" width="80" height="80" rx="8" fill="#1e293b" stroke="#64748b" stroke-width="2"/>
                     <rect x="25" y="28" width="8" height="28" rx="2" fill="#f1f5f9" transform="rotate(30 29 42)"/>
@@ -1273,12 +1273,12 @@
             },
             {
                 type: 'N',
-                name: '巴西标两脚圆插头',
+                name: '巴西标三脚圆插头',
                 region: 'americas',
                 voltage: '127-220V',
                 frequency: '60Hz',
                 countries: ['巴西'],
-                description: '基于IEC 60906-1国际标准设计。插座有两个圆孔和一个凸出的接地引脚（插座上的PIN）。巴西各地电压不同，从127V到220V都有。',
+                description: '基于IEC 60906-1国际标准，三个圆形引脚呈三角形排列。插座兼容Type C两脚圆插头。巴西各地电压不同，从127V到220V都有。',
                 svg: `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
                     <rect x="10" y="10" width="80" height="80" rx="8" fill="#1e293b" stroke="#64748b" stroke-width="2"/>
                     <circle cx="35" cy="35" r="8" fill="#f1f5f9"/>
@@ -1315,12 +1315,12 @@
             { name: '韩国', plugs: 'C, F', voltage: '220V', frequency: '60Hz' },
             { name: '印度', plugs: 'C, D, M', voltage: '230V', frequency: '50Hz' },
             { name: '巴西', plugs: 'C, N', voltage: '127/220V', frequency: '60Hz' },
-            { name: '俄罗斯', plugs: 'C, F', voltage: '220V', frequency: '50Hz' },
+            { name: '俄罗斯', plugs: 'C, F', voltage: '230V', frequency: '50Hz' },
             { name: '意大利', plugs: 'C, F, L', voltage: '230V', frequency: '50Hz' },
             { name: '西班牙', plugs: 'C, F', voltage: '230V', frequency: '50Hz' },
             { name: '泰国', plugs: 'A, B, C, O', voltage: '220V', frequency: '50Hz' },
             { name: '新加坡', plugs: 'G', voltage: '230V', frequency: '50Hz' },
-            { name: '马来西亚', plugs: 'G', voltage: '240V', frequency: '50Hz' },
+            { name: '马来西亚', plugs: 'G', voltage: '230V', frequency: '50Hz' },
             { name: '香港', plugs: 'G, M', voltage: '220V', frequency: '50Hz' },
             { name: '台湾', plugs: 'A, B', voltage: '110V', frequency: '60Hz' },
             { name: '南非', plugs: 'C, M, N', voltage: '230V', frequency: '50Hz' },
