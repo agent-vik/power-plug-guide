@@ -39,7 +39,13 @@
             padding: 100px 20px;
             text-align: center;
             background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.95)), 
-                        url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1920&q=80') center/cover no-repeat;
+                        url('https://images.unsplash.com/photo-1599340455882-1eb26dc2a387?w=1920&q=80') center/cover no-repeat;
+        }
+
+        /* Navigation active state */
+        .nav a.active {
+            color: var(--accent);
+            border-bottom-color: var(--accent);
         }
 
         .header h1 {
@@ -229,7 +235,8 @@
 
         .plug-info .label {
             font-weight: 500;
-            min-width: 50px;
+            min-width: 17px;
+            margin-right: 8px;
             color: var(--accent);
         }
 
@@ -744,10 +751,10 @@
                 description: '也称为Schuko插头，两个圆形引脚加上两侧的接地夹。这是欧洲大陆最通用的接地插头标准，额定电流16A。',
                 svg: `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
                     <rect x="10" y="10" width="80" height="80" rx="8" fill="#1e293b" stroke="#64748b" stroke-width="2"/>
-                    <circle cx="35" cy="45" r="8" fill="#f1f5f9"/>
-                    <circle cx="65" cy="45" r="8" fill="#f1f5f9"/>
-                    <path d="M15 55 Q10 55 10 60 L10 70 Q10 75 15 75" fill="none" stroke="#f1f5f9" stroke-width="2"/>
-                    <path d="M85 55 Q90 55 90 60 L90 70 Q90 75 85 75" fill="none" stroke="#f1f5f9" stroke-width="2"/>
+                    <circle cx="35" cy="42" r="8" fill="#f1f5f9"/>
+                    <circle cx="65" cy="42" r="8" fill="#f1f5f9"/>
+                    <rect x="12" y="55" width="12" height="20" rx="3" fill="#f1f5f9"/>
+                    <rect x="76" y="55" width="12" height="20" rx="3" fill="#f1f5f9"/>
                 </svg>`
             },
             {
@@ -1012,6 +1019,34 @@
                 tableToggle.querySelector('span:first-child').textContent = 
                     isExpanded ? '点击收起' : '点击展开查看完整列表（40个国家/地区）';
             });
+
+            // Scroll spy for navigation highlighting
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav a');
+
+            function updateActiveNav() {
+                let current = '';
+                const navHeight = document.querySelector('.nav').offsetHeight;
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop - navHeight - 50;
+                    const sectionHeight = section.offsetHeight;
+                    
+                    if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === '#' + current) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+
+            window.addEventListener('scroll', updateActiveNav);
+            updateActiveNav(); // Initial call
         });
     </script>
 </body>
