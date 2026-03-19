@@ -94,10 +94,15 @@
 
         /* Navigation */
         .nav {
-            background: var(--bg-primary);
+            background: transparent;
             position: sticky;
             top: 0;
             z-index: 100;
+            transition: background 0.3s ease;
+        }
+
+        .nav.scrolled {
+            background: var(--bg-primary);
         }
 
         .nav-inner {
@@ -111,7 +116,7 @@
         }
 
         .nav a {
-            color: var(--text-secondary);
+            color: #f1f5f9;
             text-decoration: none;
             padding: 16px 20px;
             font-weight: 500;
@@ -363,7 +368,7 @@
         }
 
         .table-content {
-            max-height: 0;
+            max-height: 280px;
             overflow: hidden;
             transition: max-height 0.4s ease-out;
         }
@@ -654,7 +659,7 @@
             <h2>主要国家/地区对照表</h2>
             <div class="table-container">
                 <button class="table-toggle" id="tableToggle">
-                    <span>点击展开查看完整列表（40个国家/地区）</span>
+                    <span>点击展开查看更多国家</span>
                     <span class="table-toggle-icon">▼</span>
                 </button>
                 <div class="table-content" id="tableContent">
@@ -1033,6 +1038,16 @@
             renderPlugCards();
             renderCountryTable();
 
+            // Navigation scroll background
+            const nav = document.querySelector('.nav');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    nav.classList.add('scrolled');
+                } else {
+                    nav.classList.remove('scrolled');
+                }
+            });
+
             // Search functionality
             document.getElementById('searchInput').addEventListener('input', (e) => {
                 const activeFilter = document.querySelector('.filter-btn.active').dataset.filter;
@@ -1057,7 +1072,7 @@
                 const isExpanded = tableContent.classList.toggle('expanded');
                 tableToggle.classList.toggle('expanded');
                 tableToggle.querySelector('span:first-child').textContent = 
-                    isExpanded ? '点击收起' : '点击展开查看完整列表（40个国家/地区）';
+                    isExpanded ? '点击收起' : '点击展开查看更多国家';
             });
 
             // Scroll spy for navigation highlighting
