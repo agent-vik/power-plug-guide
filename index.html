@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>全球电源插座指南 | World Power Plug Guide</title>
-    <meta name="description" content="全球电源插座标准科普网站，了解世界各国的插座类型、电压和频率标准">
-    <meta name="keywords" content="电源插座,插头类型,电压标准,国际旅行,插座指南">
+    <title>World Power Plug Guide</title>
+    <meta name="description" content="Learn about plug types, voltage and frequency standards worldwide to prepare for your international travel">
+    <meta name="keywords" content="power plug, plug types, voltage standards, international travel, plug guide">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='45' fill='%23374151'/><circle cx='35' cy='45' r='8' fill='%23fff'/><circle cx='65' cy='45' r='8' fill='%23fff'/></svg>">
     <style>
         :root {
@@ -131,19 +131,16 @@
             border-bottom-color: var(--accent);
         }
 
-        /* Language Switcher - Fixed top right */
+        /* Language Switcher - in header */
         .lang-switcher {
-            position: fixed;
-            top: 20px;
-            right: 20px;
             display: flex;
             align-items: center;
             gap: 0;
-            z-index: 1000;
             background: rgba(30, 41, 59, 0.9);
             padding: 8px 12px;
             border-radius: 20px;
             backdrop-filter: blur(8px);
+            margin-bottom: 20px;
         }
 
         .lang-btn {
@@ -617,8 +614,13 @@
     <div class="bg-fixed"></div>
     
     <header class="header">
-        <h1>全球电源插座指南</h1>
-        <p>了解世界各国的插座类型、电压和频率标准，为您的国际旅行做好准备</p>
+        <div class="lang-switcher" style="display: inline-flex;">
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <span class="lang-divider">/</span>
+            <button class="lang-btn" data-lang="zh">中文</button>
+        </div>
+        <h1>World Power Plug Guide</h1>
+        <p>Learn about plug types, voltage and frequency standards worldwide</p>
     </header>
 
     <nav class="nav">
@@ -627,53 +629,46 @@
             <a href="#types" data-i18n="nav_types">Plug Types</a>
             <a href="#voltage" data-i18n="nav_voltage">Voltage</a>
             <a href="#countries" data-i18n="nav_countries">Countries</a>
-            <a href="#tips" data-i18n="nav_tips">Travel Tips</a>
+            <a href="#tips" data-i18n="nav_tips">Tips</a>
         </div>
     </nav>
-
-    <!-- Language Switcher - Fixed top right -->
-    <div class="lang-switcher">
-        <button class="lang-btn active" data-lang="en">EN</button>
-        <span class="lang-divider">/</span>
-        <button class="lang-btn" data-lang="zh">中文</button>
-    </div>
 
     <main class="container">
         <!-- Overview Section -->
         <section id="overview">
-            <h2>全球电力标准概览</h2>
+            <h2>Global Power Standards Overview</h2>
             <div class="stats">
                 <div class="stat-card">
                     <div class="stat-number">15</div>
-                    <div class="stat-label">种主要插座类型</div>
+                    <div class="stat-label">Plug Types</div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-number">2</div>
-                    <div class="stat-label">种主要电压标准</div>
+                    <div class="stat-label">Voltage Standards</div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-number">2</div>
-                    <div class="stat-label">种主要频率标准</div>
+                    <div class="stat-label">Frequency Standards</div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-number">200+</div>
-                    <div class="stat-label">个国家/地区</div>
+                    <div class="stat-label">Countries/Regions</div>
                 </div>
             </div>
         </section>
 
         <!-- Plug Types Section -->
         <section id="types">
-            <h2>插座类型详解</h2>
+            <h2>Plug Type Guide</h2>
             <div class="search-section">
-                <input type="text" class="search-input" id="searchInput" placeholder="搜索插座类型或国家...">
+                <input type="text" class="search-input" id="searchInput" placeholder="Search plug type or country...">
                 <div class="filter-buttons">
-                    <button class="filter-btn active" data-filter="all">全部</button>
-                    <button class="filter-btn" data-filter="americas">美洲</button>
-                    <button class="filter-btn" data-filter="europe">欧洲</button>
-                    <button class="filter-btn" data-filter="asia">亚洲</button>
-                    <button class="filter-btn" data-filter="africa">非洲</button>
-                    <button class="filter-btn" data-filter="oceania">大洋洲</button>
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="americas">Americas</button>
+                    <button class="filter-btn" data-filter="europe">Europe</button>
+                    <button class="filter-btn" data-filter="asia">Asia</button>
+                    <button class="filter-btn" data-filter="africa">Africa</button>
+                    <button class="filter-btn" data-filter="oceania">Oceania</button>
                 </div>
             </div>
             <div class="plug-grid" id="plugGrid"></div>
@@ -681,23 +676,23 @@
 
         <!-- Voltage & Frequency Section -->
         <section id="voltage">
-            <h2>电压与频率标准</h2>
+            <h2>Voltage & Frequency Standards</h2>
             <div class="voltage-section">
-                <h3>全球电压分布</h3>
-                <p>世界上主要存在两种电压标准体系，这与历史发展和技术选择密切相关。了解目的地的电压标准对于安全使用电器至关重要。</p>
+                <h3>Global Voltage Distribution</h3>
+                <p>There are two main voltage standard systems in the world, closely related to historical development and technological choices. Understanding the voltage standard of your destination is crucial for safely using electrical appliances.</p>
                 
                 <div class="voltage-list">
-                    <p class="voltage-item"><strong>100-127V</strong> <span>— 北美、日本、台湾等地区使用较低电压标准</span></p>
-                    <p class="voltage-item"><strong>220-240V</strong> <span>— 欧洲、亚洲、非洲、大洋洲大部分地区使用较高电压标准</span></p>
+                    <p class="voltage-item"><strong>100-127V</strong> <span>— Used in North America, Japan, Taiwan and other regions</span></p>
+                    <p class="voltage-item"><strong>220-240V</strong> <span>— Used in most of Europe, Asia, Africa and Oceania</span></p>
                 </div>
                 
                 <div class="frequency-section">
-                    <h3>频率标准</h3>
-                    <p>全球电网频率主要分为50Hz和60Hz两种标准，这与电力工业发展的历史路径有关。</p>
+                    <h3>Frequency Standards</h3>
+                    <p>Global grid frequency is mainly divided into 50Hz and 60Hz standards, related to the historical path of power industry development.</p>
                     
                     <div class="voltage-list">
-                        <p class="voltage-item"><strong>50Hz</strong> <span>— 全球大多数国家采用的标准频率（欧洲、亚洲、非洲等）</span></p>
-                        <p class="voltage-item"><strong>60Hz</strong> <span>— 北美、日本西部、韩国、菲律宾等地区使用</span></p>
+                        <p class="voltage-item"><strong>50Hz</strong> <span>— Standard frequency adopted by most countries worldwide</span></p>
+                        <p class="voltage-item"><strong>60Hz</strong> <span>— Used in North America, western Japan, South Korea, Philippines</span></p>
                     </div>
                 </div>
             </div>
@@ -705,20 +700,20 @@
 
         <!-- Country Reference Section -->
         <section id="countries">
-            <h2>主要国家/地区对照表</h2>
+            <h2>Country/Region Reference Table</h2>
             <div class="table-container">
                 <button class="table-toggle" id="tableToggle">
-                    <span>点击展开查看更多国家</span>
+                    <span>Click to expand for more countries</span>
                     <span class="table-toggle-icon">▼</span>
                 </button>
                 <div class="table-content" id="tableContent">
                     <table class="comparison-table">
                         <thead>
                             <tr>
-                                <th>国家/地区</th>
-                                <th>插座类型</th>
-                                <th>电压</th>
-                                <th>频率</th>
+                                <th>Country/Region</th>
+                                <th>Plug Type</th>
+                                <th>Voltage</th>
+                                <th>Frequency</th>
                             </tr>
                         </thead>
                         <tbody id="countryTable"></tbody>
@@ -729,31 +724,31 @@
 
         <!-- Travel Tips Section -->
         <section id="tips">
-            <h2>国际旅行电力贴士</h2>
+            <h2>International Travel Power Tips</h2>
             <div class="tips-grid">
                 <div class="tip-card">
-                    <h4>检查设备兼容性</h4>
-                    <p>现代手机、笔记本电脑充电器通常支持100-240V宽电压，但吹风机、电熨斗等大功率电器通常只支持单一电压，使用前请仔细检查设备标签。</p>
+                    <h4>Check Device Compatibility</h4>
+                    <p>Modern phone and laptop chargers usually support 100-240V wide voltage, but high-power appliances like hair dryers and irons usually only support single voltage. Check device labels carefully before use.</p>
                 </div>
                 <div class="tip-card">
-                    <h4>准备合适的转换器</h4>
-                    <p>旅行转换插头只改变插头形状，不改变电压。如果设备不支持目的地电压，还需要携带变压器。建议选择带USB接口的多功能旅行插头。</p>
+                    <h4>Prepare Proper Adapters</h4>
+                    <p>Travel plug adapters only change the plug shape, not the voltage. If your device doesn't support the destination voltage, you also need a transformer. Choose a multi-function travel adapter with USB ports.</p>
                 </div>
                 <div class="tip-card">
-                    <h4>注意功率限制</h4>
-                    <p>使用变压器时要注意功率匹配。变压器功率应大于设备功率的1.5倍，否则可能导致设备损坏或安全事故。</p>
+                    <h4>Mind Power Limits</h4>
+                    <p>When using a transformer, make sure the power rating matches. Transformer power should be at least 1.5 times the device power, otherwise it may cause device damage or safety hazards.</p>
                 </div>
                 <div class="tip-card">
-                    <h4>查看设备铭牌</h4>
-                    <p>设备铭牌上通常标有"Input: 100-240V 50/60Hz"等信息。如果显示宽电压范围，则可在全球安全使用；如果只有单一电压，需要变压器。</p>
+                    <h4>Check Device Label</h4>
+                    <p>Device labels usually show "Input: 100-240V 50/60Hz". If it shows a wide voltage range, it can be used safely worldwide; if only single voltage, you need a transformer.</p>
                 </div>
             </div>
         </section>
     </main>
 
     <footer class="footer">
-        <p>全球电源插座指南 | World Power Plug Guide</p>
-        <p>数据来源: IEC国际电工委员会、World Standards</p>
+        <p>World Power Plug Guide</p>
+        <p>Data sources: IEC, World Standards</p>
         <p style="margin-top: 15px;">
             Created by <a href="https://github.com/agent-vik" target="_blank">Agent Vik</a> & <a href="https://github.com/greenzorro" target="_blank">Victor42</a> |
             <a href="https://github.com/agent-vik/power-plug-guide" target="_blank">Code</a>
@@ -768,14 +763,14 @@
             en: {
                 // Header
                 title: 'World Power Plug Guide',
-                subtitle: 'Learn about plug types, voltage and frequency standards worldwide to prepare for your international travel',
+                subtitle: 'Learn about plug types, voltage and frequency standards worldwide',
                 
                 // Navigation
                 nav_overview: 'Overview',
                 nav_types: 'Plug Types',
                 nav_voltage: 'Voltage',
                 nav_countries: 'Countries',
-                nav_tips: 'Travel Tips',
+                nav_tips: 'Tips',
                 
                 // Overview Section
                 overview_title: 'Global Power Standards Overview',
