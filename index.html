@@ -718,12 +718,12 @@
                 voltage: '220-240V',
                 frequency: '50Hz',
                 countries: ['印度', '尼泊尔', '巴基斯坦', '斯里兰卡', '孟加拉国', '缅甸'],
-                description: '三个圆形引脚呈三角形排列，是旧版英国标准的衍生设计。引脚间距较大，额定电流通常为6A。',
+                description: '三个圆形引脚呈三角形排列，是旧版英国标准的衍生设计。接地引脚比电源引脚更粗，额定电流通常为6A。',
                 svg: `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
                     <rect x="10" y="10" width="80" height="80" rx="8" fill="#1e293b" stroke="#64748b" stroke-width="2"/>
-                    <circle cx="50" cy="30" r="7" fill="#f1f5f9"/>
-                    <circle cx="35" cy="55" r="7" fill="#f1f5f9"/>
-                    <circle cx="65" cy="55" r="7" fill="#f1f5f9"/>
+                    <circle cx="50" cy="30" r="9" fill="#f1f5f9"/>
+                    <circle cx="33" cy="58" r="6" fill="#f1f5f9"/>
+                    <circle cx="67" cy="58" r="6" fill="#f1f5f9"/>
                 </svg>`
             },
             {
@@ -733,12 +733,12 @@
                 voltage: '220-240V',
                 frequency: '50Hz',
                 countries: ['法国', '比利时', '波兰', '捷克', '斯洛伐克', '突尼斯', '摩洛哥'],
-                description: '两个圆形引脚加上一个凸出的接地孔。插座有一个突出的接地引脚，插头有对应的接地孔。与Type F不兼容。',
+                description: '插座有两个圆孔和一个凸出的接地引脚（插座上凸出的PIN）。这种设计使接地先于电源接通，安全性更高。与Type F不兼容。',
                 svg: `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
                     <rect x="10" y="10" width="80" height="80" rx="8" fill="#1e293b" stroke="#64748b" stroke-width="2"/>
                     <circle cx="35" cy="35" r="8" fill="#f1f5f9"/>
                     <circle cx="65" cy="35" r="8" fill="#f1f5f9"/>
-                    <circle cx="50" cy="60" r="6" fill="none" stroke="#f1f5f9" stroke-width="2"/>
+                    <circle cx="50" cy="62" r="5" fill="#f1f5f9"/>
                 </svg>`
             },
             {
@@ -854,12 +854,12 @@
                 voltage: '220-240V',
                 frequency: '50Hz',
                 countries: ['南非', '斯威士兰', '莱索托', '博茨瓦纳', '莫桑比克'],
-                description: '与Type D相似但引脚更大，额定电流15A。是旧版英国标准的另一衍生版本。南非正在逐步过渡到Type N。',
+                description: '与Type D相似但引脚更大，接地引脚比电源引脚更粗。额定电流15A，是旧版英国标准的另一衍生版本。南非正在逐步过渡到Type N。',
                 svg: `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
                     <rect x="10" y="10" width="80" height="80" rx="8" fill="#1e293b" stroke="#64748b" stroke-width="2"/>
-                    <circle cx="50" cy="28" r="9" fill="#f1f5f9"/>
-                    <circle cx="32" cy="58" r="9" fill="#f1f5f9"/>
-                    <circle cx="68" cy="58" r="9" fill="#f1f5f9"/>
+                    <circle cx="50" cy="28" r="10" fill="#f1f5f9"/>
+                    <circle cx="30" cy="60" r="8" fill="#f1f5f9"/>
+                    <circle cx="70" cy="60" r="8" fill="#f1f5f9"/>
                 </svg>`
             },
             {
@@ -869,12 +869,12 @@
                 voltage: '127-220V',
                 frequency: '60Hz',
                 countries: ['巴西'],
-                description: '基于IEC 60906-1国际标准设计，两个圆形引脚加接地孔。巴西各地电压不同，从127V到220V都有。',
+                description: '基于IEC 60906-1国际标准设计。插座有两个圆孔和一个凸出的接地引脚（插座上的PIN）。巴西各地电压不同，从127V到220V都有。',
                 svg: `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
                     <rect x="10" y="10" width="80" height="80" rx="8" fill="#1e293b" stroke="#64748b" stroke-width="2"/>
                     <circle cx="35" cy="35" r="8" fill="#f1f5f9"/>
                     <circle cx="65" cy="35" r="8" fill="#f1f5f9"/>
-                    <circle cx="50" cy="62" r="6" fill="none" stroke="#f1f5f9" stroke-width="2"/>
+                    <circle cx="50" cy="62" r="5" fill="#f1f5f9"/>
                 </svg>`
             },
             {
@@ -884,12 +884,12 @@
                 voltage: '220V',
                 frequency: '50Hz',
                 countries: ['泰国'],
-                description: '泰国新标准，基于IEC 60906-1国际标准，正在逐步推广。与Type N相似但规格略有不同。',
+                description: '泰国新标准TIS 166-2549，基于IEC 60906-1国际标准。插座有两个圆孔和一个凸出的接地引脚，正在逐步推广中。',
                 svg: `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
                     <rect x="10" y="10" width="80" height="80" rx="8" fill="#1e293b" stroke="#64748b" stroke-width="2"/>
                     <circle cx="35" cy="35" r="7" fill="#f1f5f9"/>
                     <circle cx="65" cy="35" r="7" fill="#f1f5f9"/>
-                    <rect x="46" y="50" width="8" height="18" rx="4" fill="#f1f5f9"/>
+                    <circle cx="50" cy="60" r="5" fill="#f1f5f9"/>
                 </svg>`
             }
         ];
