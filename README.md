@@ -5,7 +5,7 @@
 ## 项目简介
 
 本网站收录了全球15种主要电源插座类型（Type A ~ Type O），详细展示每种插座的：
-- SVG矢量图形
+- 高清插座图片
 - 使用国家和地区
 - 电压和频率标准
 - 设计特点和历史背景
@@ -14,8 +14,9 @@
 
 - **纯静态网站** - 无需服务器，可直接部署到GitHub Pages
 - **响应式设计** - 完美适配桌面端和移动端
-- **SVG矢量图形** - 所有插座图形使用SVG绘制，清晰且可缩放
+- **WebP图片格式** - 所有插座图片使用WebP格式，加载速度快
 - **搜索与筛选** - 支持按地区筛选和关键词搜索
+- **SEO优化** - 完整的meta标签、Schema.org结构化数据、站点地图
 - **零依赖** - 不使用任何外部框架，加载速度快
 
 ## 在线访问
@@ -26,8 +27,7 @@
 
 - IEC 国际电工委员会
 - World Standards (worldstandards.eu)
-- Wikipedia
 
 ## 作者
 
-Created by [Agent Vik](https://github.com/agent-vik) & [Victor42](https://github.com/greenzorro)
+Created by [Victor42](https://victor42.work/)
