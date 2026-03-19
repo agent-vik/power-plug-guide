@@ -617,32 +617,6 @@
             font-size: 0.9rem;
         }
 
-        /* FAQ Section */
-        .faq-container {
-            display: grid;
-            gap: 20px;
-        }
-
-        .faq-item {
-            background: var(--bg-primary);
-            border-radius: 24px;
-            padding: 24px;
-            border-left: 4px solid var(--accent);
-        }
-
-        .faq-item h3 {
-            color: var(--text-primary);
-            font-size: 1.1rem;
-            margin-bottom: 12px;
-            font-weight: 600;
-        }
-
-        .faq-item p {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            line-height: 1.7;
-        }
-
         /* Search Section */
         .search-section {
             background: var(--bg-primary);
@@ -791,20 +765,8 @@
             height: auto;
         }
         
-        /* Mobile FAQ fix */
+        /* Mobile table fix */
         @media (max-width: 768px) {
-            .faq-item {
-                padding: 18px;
-            }
-            
-            .faq-item h3 {
-                font-size: 1rem;
-            }
-            
-            .faq-item p {
-                font-size: 0.85rem;
-            }
-            
             .table-container {
                 overflow-x: auto;
             }
@@ -835,7 +797,6 @@
             <a href="#types" data-i18n="nav_types">Plug Types</a>
             <a href="#voltage" data-i18n="nav_voltage">Voltage</a>
             <a href="#countries" data-i18n="nav_countries">Countries</a>
-            <a href="#tips" data-i18n="nav_tips">Tips</a>
             <a href="#faq" data-i18n="nav_faq">FAQ</a>
         </div>
     </nav>
@@ -929,41 +890,34 @@
             </div>
         </section>
 
-        <!-- FAQ Section -->
+        <!-- FAQ Section (merged with Tips) -->
         <section id="faq">
             <h2 data-i18n="faq_title">Frequently Asked Questions</h2>
-            <div class="faq-container">
-                <div class="faq-item">
-                    <h3 data-i18n="faq1_q">What plug adapter do I need for Japan?</h3>
+            <div class="tips-grid">
+                <div class="tip-card">
+                    <h4 data-i18n="faq1_q">What plug adapter do I need for Japan?</h4>
                     <p data-i18n="faq1_a">Japan uses Type A and Type B plugs (same shape as US plugs), but the voltage is 100V (lower than US 120V). Most modern devices like phones and laptops work fine, but hair dryers and other appliances may need a voltage converter. Japan is unique with its 50/60Hz frequency split - eastern Japan (Tokyo) uses 50Hz while western Japan (Osaka) uses 60Hz.</p>
                 </div>
-                <div class="faq-item">
-                    <h3 data-i18n="faq2_q">Do I need a voltage converter for Europe?</h3>
+                <div class="tip-card">
+                    <h4 data-i18n="faq2_q">Do I need a voltage converter for Europe?</h4>
                     <p data-i18n="faq2_a">Check your device's power label. If it says "Input: 100-240V 50/60Hz", you only need a plug adapter (Type C or F). If your device only supports 110-120V, you'll need a voltage converter for Europe's 230V. Most modern phone chargers, laptop adapters, and camera chargers are dual voltage and work globally.</p>
                 </div>
-                <div class="faq-item">
-                    <h3 data-i18n="faq3_q">What is the difference between Type C and Type F plugs?</h3>
+                <div class="tip-card">
+                    <h4 data-i18n="faq3_q">What is the difference between Type C and Type F plugs?</h4>
                     <p data-i18n="faq3_a">Type C (Europlug) has two round pins with no ground connection, rated for 2.5A maximum current. Type F (Schuko) has two round pins plus side grounding clips, rated for 16A. Type F is safer for high-power appliances and is the standard in Germany, Austria, Netherlands, and many other European countries. A Type C plug can fit into a Type F socket, but not vice versa.</p>
                 </div>
-                <div class="faq-item">
-                    <h3 data-i18n="faq4_q">Which countries use Type G plugs (British 3-pin)?</h3>
+                <div class="tip-card">
+                    <h4 data-i18n="faq4_q">Which countries use Type G plugs (British 3-pin)?</h4>
                     <p data-i18n="faq4_a">Type G is used in the UK, Ireland, Hong Kong, Singapore, Malaysia, UAE, Saudi Arabia, Qatar, Kenya, Cyprus, Malta, and many former British colonies. It features a built-in fuse for extra safety and shutters that prevent children from inserting objects. The voltage is 230V at 50Hz.</p>
                 </div>
-                <div class="faq-item">
-                    <h3 data-i18n="faq5_q">Can I use US appliances in Europe?</h3>
+                <div class="tip-card">
+                    <h4 data-i18n="faq5_q">Can I use US appliances in Europe?</h4>
                     <p data-i18n="faq5_a">You need both a plug adapter (Type C or F) AND possibly a voltage converter. US appliances run on 120V, while Europe uses 230V. Check your device label: if it supports 100-240V input, only a plug adapter is needed. For single-voltage devices like hair dryers, you need a voltage converter capable of handling the device's wattage.</p>
                 </div>
-                <div class="faq-item">
-                    <h3 data-i18n="faq6_q">What plug type does China use?</h3>
+                <div class="tip-card">
+                    <h4 data-i18n="faq6_q">What plug type does China use?</h4>
                     <p data-i18n="faq6_a">Mainland China uses Type A (two flat parallel pins, like US) and Type I (three pins in an inverted V pattern, like Australia). The standard voltage is 230V at 50Hz. Note that Hong Kong and Macau use Type G (British 3-pin) as they have separate electrical standards. European Type C round-pin plugs no longer fit modern Chinese sockets after the 2021 GB1002 standard update.</p>
                 </div>
-            </div>
-        </section>
-
-        <!-- Travel Tips Section -->
-        <section id="tips">
-            <h2 data-i18n="tips_title">International Travel Power Tips</h2>
-            <div class="tips-grid">
                 <div class="tip-card">
                     <h4 data-i18n="tip1_title">Check Device Compatibility</h4>
                     <p data-i18n="tip1_desc">Modern phone and laptop chargers usually support 100-240V wide voltage, but high-power appliances like hair dryers and irons usually only support single voltage. Check device labels carefully before use.</p>
@@ -988,8 +942,7 @@
         <p data-i18n="footer_title">World Power Plug Guide</p>
         <p data-i18n="footer_source">Data sources: <a href="https://www.iec.ch/" target="_blank">IEC</a>, <a href="https://www.worldstandards.eu/electricity/plugs-and-sockets/" target="_blank">World Standards</a></p>
         <p style="margin-top: 15px;">
-            <span data-i18n="footer_created">Created by</span> <a href="https://github.com/agent-vik" target="_blank">Agent Vik</a> & <a href="https://github.com/greenzorro" target="_blank">Victor42</a> |
-            <a href="https://github.com/agent-vik/power-plug-guide" target="_blank">Code</a>
+            <span data-i18n="footer_created">Created by</span> <a href="https://victor42.work/" target="_blank">Victor42</a>
         </p>
     </footer>
 
@@ -1008,7 +961,6 @@
                 nav_types: 'Plug Types',
                 nav_voltage: 'Voltage',
                 nav_countries: 'Countries',
-                nav_tips: 'Tips',
                 nav_faq: 'FAQ',
                 
                 // FAQ Section
@@ -1080,8 +1032,7 @@
                 table_voltage: 'Voltage',
                 table_frequency: 'Frequency',
                 
-                // Tips Section
-                tips_title: 'International Travel Power Tips',
+                // Tips (merged into FAQ section)
                 tip1_title: 'Check Device Compatibility',
                 tip1_desc: 'Modern phone and laptop chargers usually support 100-240V wide voltage, but high-power appliances like hair dryers and irons usually only support single voltage. Check device labels carefully before use.',
                 tip2_title: 'Prepare Proper Adapters',
@@ -1106,7 +1057,6 @@
                 nav_types: '插座类型',
                 nav_voltage: '电压频率',
                 nav_countries: '国家对照',
-                nav_tips: '旅行贴士',
                 nav_faq: '常见问题',
                 
                 // FAQ Section Chinese
@@ -1168,8 +1118,7 @@
                 table_voltage: '电压',
                 table_frequency: '频率',
                 
-                // Tips Section
-                tips_title: '国际旅行电力贴士',
+                // Tips (merged into FAQ section)
                 tip1_title: '检查设备兼容性',
                 tip1_desc: '现代手机、笔记本电脑充电器通常支持100-240V宽电压，但吹风机、电熨斗等大功率电器通常只支持单一电压，使用前请仔细检查设备标签。',
                 tip2_title: '准备合适的转换器',
@@ -1320,36 +1269,34 @@
             document.querySelector('#voltage h3').textContent = t('voltage_global');
             document.querySelector('#voltage .voltage-section > p').textContent = t('voltage_intro');
             
-            // Tips section
-            document.querySelector('#tips h2').textContent = t('tips_title');
-            const tipCards = document.querySelectorAll('.tip-card');
-            tipCards[0].querySelector('h4').textContent = t('tip1_title');
-            tipCards[0].querySelector('p').textContent = t('tip1_desc');
-            tipCards[1].querySelector('h4').textContent = t('tip2_title');
-            tipCards[1].querySelector('p').textContent = t('tip2_desc');
-            tipCards[2].querySelector('h4').textContent = t('tip3_title');
-            tipCards[2].querySelector('p').textContent = t('tip3_desc');
-            tipCards[3].querySelector('h4').textContent = t('tip4_title');
-            tipCards[3].querySelector('p').textContent = t('tip4_desc');
+            // FAQ section (includes merged tips)
+            document.querySelector('#faq h2').textContent = t('faq_title');
+            const tipCards = document.querySelectorAll('#faq .tip-card');
+            // FAQ questions (index 0-5)
+            tipCards[0].querySelector('h4').textContent = t('faq1_q');
+            tipCards[0].querySelector('p').textContent = t('faq1_a');
+            tipCards[1].querySelector('h4').textContent = t('faq2_q');
+            tipCards[1].querySelector('p').textContent = t('faq2_a');
+            tipCards[2].querySelector('h4').textContent = t('faq3_q');
+            tipCards[2].querySelector('p').textContent = t('faq3_a');
+            tipCards[3].querySelector('h4').textContent = t('faq4_q');
+            tipCards[3].querySelector('p').textContent = t('faq4_a');
+            tipCards[4].querySelector('h4').textContent = t('faq5_q');
+            tipCards[4].querySelector('p').textContent = t('faq5_a');
+            tipCards[5].querySelector('h4').textContent = t('faq6_q');
+            tipCards[5].querySelector('p').textContent = t('faq6_a');
+            // Tips (index 6-9)
+            tipCards[6].querySelector('h4').textContent = t('tip1_title');
+            tipCards[6].querySelector('p').textContent = t('tip1_desc');
+            tipCards[7].querySelector('h4').textContent = t('tip2_title');
+            tipCards[7].querySelector('p').textContent = t('tip2_desc');
+            tipCards[8].querySelector('h4').textContent = t('tip3_title');
+            tipCards[8].querySelector('p').textContent = t('tip3_desc');
+            tipCards[9].querySelector('h4').textContent = t('tip4_title');
+            tipCards[9].querySelector('p').textContent = t('tip4_desc');
             
             // Countries section
             document.querySelector('#countries h2').textContent = t('countries_title');
-            
-            // FAQ section
-            document.querySelector('#faq h2').textContent = t('faq_title');
-            const faqItems = document.querySelectorAll('.faq-item');
-            faqItems[0].querySelector('h3').textContent = t('faq1_q');
-            faqItems[0].querySelector('p').textContent = t('faq1_a');
-            faqItems[1].querySelector('h3').textContent = t('faq2_q');
-            faqItems[1].querySelector('p').textContent = t('faq2_a');
-            faqItems[2].querySelector('h3').textContent = t('faq3_q');
-            faqItems[2].querySelector('p').textContent = t('faq3_a');
-            faqItems[3].querySelector('h3').textContent = t('faq4_q');
-            faqItems[3].querySelector('p').textContent = t('faq4_a');
-            faqItems[4].querySelector('h3').textContent = t('faq5_q');
-            faqItems[4].querySelector('p').textContent = t('faq5_a');
-            faqItems[5].querySelector('h3').textContent = t('faq6_q');
-            faqItems[5].querySelector('p').textContent = t('faq6_a');
             
             // Footer - only update title, source already has links in HTML
             document.querySelector('.footer p').textContent = t('footer_title');
