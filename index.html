@@ -5,21 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>全球电源插座指南 | World Power Plug Guide</title>
     <meta name="description" content="全球电源插座标准科普网站，了解世界各国的插座类型、电压和频率标准">
-    <meta name="keywords" content="电源插座,插头类型,电压标准,国际旅行,插座指南,Type A,Type B,Type C">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔌</text></svg>">
+    <meta name="keywords" content="电源插座,插头类型,电压标准,国际旅行,插座指南">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='45' fill='%23374151'/><circle cx='35' cy='45' r='8' fill='%23fff'/><circle cx='65' cy='45' r='8' fill='%23fff'/></svg>">
     <style>
         :root {
-            --primary: #2563eb;
-            --primary-dark: #1d4ed8;
-            --secondary: #f59e0b;
-            --bg-light: #f8fafc;
-            --bg-dark: #1e293b;
-            --text-light: #334155;
-            --text-dark: #f1f5f9;
-            --card-bg: #ffffff;
-            --card-border: #e2e8f0;
-            --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
-            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+            --bg-primary: #1e293b;
+            --bg-secondary: #0f172a;
+            --bg-card: #1e293b;
+            --text-primary: #f1f5f9;
+            --text-secondary: #94a3b8;
+            --accent: #38bdf8;
+            --accent-hover: #0ea5e9;
+            --border: #334155;
+            --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.3);
         }
 
         * {
@@ -30,43 +28,41 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            background: var(--bg-light);
-            color: var(--text-light);
-            line-height: 1.6;
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            line-height: 1.7;
         }
 
+        /* Header with background image */
         .header {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            color: white;
-            padding: 60px 20px;
+            position: relative;
+            padding: 100px 20px;
             text-align: center;
+            background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.95)), 
+                        url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1920&q=80') center/cover no-repeat;
         }
 
         .header h1 {
-            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-size: clamp(1.8rem, 4vw, 3rem);
             margin-bottom: 15px;
             font-weight: 700;
+            letter-spacing: -0.02em;
         }
 
         .header p {
-            font-size: clamp(1rem, 2vw, 1.25rem);
-            opacity: 0.9;
-            max-width: 600px;
+            font-size: clamp(0.95rem, 1.5vw, 1.15rem);
+            color: var(--text-secondary);
+            max-width: 550px;
             margin: 0 auto;
         }
 
-        .header .emoji {
-            font-size: 4rem;
-            margin-bottom: 20px;
-            display: block;
-        }
-
+        /* Navigation */
         .nav {
-            background: white;
+            background: var(--bg-primary);
             position: sticky;
             top: 0;
             z-index: 100;
-            box-shadow: var(--shadow);
+            border-bottom: 1px solid var(--border);
         }
 
         .nav-inner {
@@ -75,140 +71,142 @@
             padding: 0 20px;
             display: flex;
             justify-content: center;
-            gap: 10px;
+            gap: 5px;
             flex-wrap: wrap;
         }
 
         .nav a {
-            color: var(--text-light);
+            color: var(--text-secondary);
             text-decoration: none;
-            padding: 15px 20px;
+            padding: 16px 20px;
             font-weight: 500;
-            transition: all 0.3s;
-            border-bottom: 3px solid transparent;
+            font-size: 0.95rem;
+            transition: all 0.2s;
+            border-bottom: 2px solid transparent;
         }
 
         .nav a:hover {
-            color: var(--primary);
-            border-bottom-color: var(--primary);
+            color: var(--accent);
+            border-bottom-color: var(--accent);
         }
 
+        /* Main Content */
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 40px 20px;
+            padding: 50px 20px;
         }
 
         section {
-            margin-bottom: 60px;
+            margin-bottom: 70px;
         }
 
         h2 {
-            font-size: 2rem;
-            margin-bottom: 20px;
-            color: var(--primary-dark);
-            display: flex;
-            align-items: center;
-            gap: 10px;
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            color: var(--text-primary);
+            font-weight: 600;
         }
 
         h3 {
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             margin-bottom: 15px;
-            color: var(--text-light);
+            color: var(--text-primary);
+            font-weight: 500;
         }
 
+        /* Stats Section */
         .stats {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
             gap: 20px;
             margin-bottom: 40px;
         }
 
         .stat-card {
-            background: white;
-            border-radius: 16px;
-            padding: 30px;
+            background: var(--bg-primary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 25px;
             text-align: center;
-            box-shadow: var(--shadow);
-            transition: transform 0.3s;
+            transition: transform 0.2s, border-color 0.2s;
         }
 
         .stat-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-3px);
+            border-color: var(--accent);
         }
 
         .stat-number {
-            font-size: 3rem;
+            font-size: 2.5rem;
             font-weight: 700;
-            color: var(--primary);
+            color: var(--accent);
         }
 
         .stat-label {
-            color: var(--text-light);
-            font-size: 1rem;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
             margin-top: 5px;
         }
 
+        /* Plug Types Grid */
         .plug-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 20px;
         }
 
         .plug-card {
-            background: white;
-            border-radius: 16px;
-            padding: 25px;
-            box-shadow: var(--shadow);
-            transition: all 0.3s;
-            border: 2px solid transparent;
+            background: var(--bg-primary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+            transition: all 0.2s;
         }
 
         .plug-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-lg);
-            border-color: var(--primary);
+            border-color: var(--accent);
+            transform: translateY(-2px);
         }
 
         .plug-header {
             display: flex;
             align-items: center;
-            gap: 15px;
-            margin-bottom: 15px;
+            gap: 12px;
+            margin-bottom: 16px;
         }
 
         .plug-type-badge {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            color: white;
-            font-size: 1.25rem;
+            background: var(--accent);
+            color: var(--bg-secondary);
+            font-size: 1.1rem;
             font-weight: 700;
-            padding: 8px 16px;
-            border-radius: 8px;
-            min-width: 70px;
+            padding: 6px 14px;
+            border-radius: 6px;
+            min-width: 55px;
             text-align: center;
         }
 
         .plug-name {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: var(--text-light);
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--text-primary);
         }
 
         .plug-svg-container {
-            background: var(--bg-light);
-            border-radius: 12px;
+            background: var(--bg-secondary);
+            border-radius: 10px;
             padding: 20px;
-            margin-bottom: 15px;
+            margin-bottom: 16px;
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 150px;
+            min-height: 130px;
         }
 
         .plug-svg-container svg {
-            max-width: 120px;
-            max-height: 120px;
+            max-width: 100px;
+            max-height: 100px;
         }
 
         .plug-info {
@@ -223,13 +221,20 @@
         }
 
         .plug-info .label {
-            font-weight: 600;
-            min-width: 60px;
-            color: var(--primary-dark);
+            font-weight: 500;
+            min-width: 50px;
+            color: var(--accent);
         }
 
         .plug-info .value {
-            color: var(--text-light);
+            color: var(--text-secondary);
+        }
+
+        .plug-description {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            line-height: 1.6;
+            margin-bottom: 12px;
         }
 
         .country-tags {
@@ -240,71 +245,104 @@
         }
 
         .country-tag {
-            background: #e0f2fe;
-            color: #0369a1;
-            padding: 4px 10px;
-            border-radius: 20px;
-            font-size: 0.8rem;
+            background: rgba(56, 189, 248, 0.1);
+            color: var(--accent);
+            padding: 3px 10px;
+            border-radius: 15px;
+            font-size: 0.75rem;
             font-weight: 500;
         }
 
+        .country-more {
+            color: var(--text-secondary);
+            font-size: 0.75rem;
+            padding: 3px 8px;
+        }
+
+        /* Voltage Section */
         .voltage-section {
-            background: white;
-            border-radius: 16px;
+            background: var(--bg-primary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
             padding: 30px;
-            box-shadow: var(--shadow);
+        }
+
+        .voltage-section p {
+            color: var(--text-secondary);
+            margin-bottom: 15px;
         }
 
         .voltage-legend {
             display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            margin-top: 20px;
-            justify-content: center;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 25px;
         }
 
         .legend-item {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
         }
 
         .legend-color {
-            width: 30px;
-            height: 20px;
+            width: 40px;
+            height: 24px;
             border-radius: 4px;
+            flex-shrink: 0;
         }
 
+        .legend-item span {
+            color: var(--text-secondary);
+        }
+
+        .legend-item strong {
+            color: var(--text-primary);
+        }
+
+        .frequency-section {
+            margin-top: 30px;
+            padding-top: 25px;
+            border-top: 1px solid var(--border);
+        }
+
+        /* Comparison Table */
         .comparison-table {
             width: 100%;
             border-collapse: collapse;
-            background: white;
-            border-radius: 16px;
+            background: var(--bg-primary);
+            border-radius: 12px;
             overflow: hidden;
-            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
         }
 
         .comparison-table th,
         .comparison-table td {
-            padding: 15px;
+            padding: 14px 16px;
             text-align: left;
-            border-bottom: 1px solid var(--card-border);
+            border-bottom: 1px solid var(--border);
         }
 
         .comparison-table th {
-            background: var(--primary);
-            color: white;
+            background: var(--bg-card);
+            color: var(--text-primary);
             font-weight: 600;
+            font-size: 0.9rem;
         }
 
-        .comparison-table tr:hover {
-            background: var(--bg-light);
+        .comparison-table td {
+            color: var(--text-secondary);
+        }
+
+        .comparison-table tr:hover td {
+            background: rgba(56, 189, 248, 0.05);
         }
 
         .comparison-table tr:last-child td {
             border-bottom: none;
         }
 
+        /* Tips Section */
         .tips-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -312,31 +350,91 @@
         }
 
         .tip-card {
-            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
-            border-radius: 16px;
-            padding: 25px;
-            border-left: 4px solid var(--secondary);
+            background: var(--bg-primary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+            border-left: 3px solid var(--accent);
         }
 
         .tip-card h4 {
-            color: #92400e;
+            color: var(--text-primary);
             margin-bottom: 10px;
-            font-size: 1.1rem;
+            font-size: 1rem;
+            font-weight: 600;
         }
 
         .tip-card p {
-            color: #78350f;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
         }
 
+        /* Search Section */
+        .search-section {
+            background: var(--bg-primary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 25px;
+        }
+
+        .search-input {
+            width: 100%;
+            max-width: 380px;
+            padding: 12px 18px;
+            font-size: 0.95rem;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--text-primary);
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .search-input::placeholder {
+            color: var(--text-secondary);
+        }
+
+        .search-input:focus {
+            border-color: var(--accent);
+        }
+
+        .filter-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 15px;
+        }
+
+        .filter-btn {
+            padding: 8px 16px;
+            border: 1px solid var(--border);
+            background: var(--bg-secondary);
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            border-color: var(--accent);
+            background: var(--accent);
+            color: var(--bg-secondary);
+        }
+
+        /* Footer */
         .footer {
-            background: var(--bg-dark);
-            color: var(--text-dark);
+            background: var(--bg-primary);
+            color: var(--text-secondary);
             padding: 40px 20px;
             text-align: center;
+            border-top: 1px solid var(--border);
         }
 
         .footer a {
-            color: var(--secondary);
+            color: var(--accent);
             text-decoration: none;
         }
 
@@ -344,9 +442,10 @@
             text-decoration: underline;
         }
 
+        /* Responsive */
         @media (max-width: 768px) {
             .header {
-                padding: 40px 15px;
+                padding: 60px 15px;
             }
 
             .nav-inner {
@@ -356,12 +455,13 @@
             }
 
             .nav a {
-                padding: 12px 15px;
+                padding: 14px 12px;
                 white-space: nowrap;
+                font-size: 0.9rem;
             }
 
             .container {
-                padding: 20px 15px;
+                padding: 30px 15px;
             }
 
             .plug-grid {
@@ -374,74 +474,18 @@
 
             .comparison-table th,
             .comparison-table td {
-                padding: 10px 8px;
+                padding: 10px 12px;
             }
         }
 
+        /* Smooth scroll */
         html {
             scroll-behavior: smooth;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .plug-card {
-            animation: fadeIn 0.5s ease-out;
-        }
-
-        .search-section {
-            background: white;
-            border-radius: 16px;
-            padding: 25px;
-            box-shadow: var(--shadow);
-            margin-bottom: 30px;
-        }
-
-        .search-input {
-            width: 100%;
-            max-width: 400px;
-            padding: 12px 20px;
-            font-size: 1rem;
-            border: 2px solid var(--card-border);
-            border-radius: 25px;
-            outline: none;
-            transition: border-color 0.3s;
-        }
-
-        .search-input:focus {
-            border-color: var(--primary);
-        }
-
-        .filter-buttons {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 15px;
-        }
-
-        .filter-btn {
-            padding: 8px 16px;
-            border: 2px solid var(--card-border);
-            background: white;
-            border-radius: 20px;
-            cursor: pointer;
-            transition: all 0.3s;
-            font-size: 0.9rem;
-        }
-
-        .filter-btn:hover,
-        .filter-btn.active {
-            border-color: var(--primary);
-            background: var(--primary);
-            color: white;
         }
     </style>
 </head>
 <body>
     <header class="header">
-        <span class="emoji">🔌</span>
         <h1>全球电源插座指南</h1>
         <p>了解世界各国的插座类型、电压和频率标准，为您的国际旅行做好准备</p>
     </header>
@@ -457,8 +501,9 @@
     </nav>
 
     <main class="container">
+        <!-- Overview Section -->
         <section id="overview">
-            <h2>📊 全球电力标准概览</h2>
+            <h2>全球电力标准概览</h2>
             <div class="stats">
                 <div class="stat-card">
                     <div class="stat-number">15</div>
@@ -479,8 +524,9 @@
             </div>
         </section>
 
+        <!-- Plug Types Section -->
         <section id="types">
-            <h2>🔌 插座类型详解</h2>
+            <h2>插座类型详解</h2>
             <div class="search-section">
                 <input type="text" class="search-input" id="searchInput" placeholder="搜索插座类型或国家...">
                 <div class="filter-buttons">
@@ -495,37 +541,45 @@
             <div class="plug-grid" id="plugGrid"></div>
         </section>
 
+        <!-- Voltage & Frequency Section -->
         <section id="voltage">
-            <h2>⚡ 电压与频率标准</h2>
+            <h2>电压与频率标准</h2>
             <div class="voltage-section">
                 <h3>全球电压分布</h3>
                 <p>世界上主要存在两种电压标准体系，这与历史发展和技术选择密切相关。了解目的地的电压标准对于安全使用电器至关重要。</p>
+                
                 <div class="voltage-legend">
                     <div class="legend-item">
                         <div class="legend-color" style="background: #3b82f6;"></div>
-                        <span><strong>100-127V</strong> - 北美、日本、台湾等</span>
+                        <span><strong>100-127V</strong> - 北美、日本、台湾等地区使用较低电压标准</span>
                     </div>
                     <div class="legend-item">
                         <div class="legend-color" style="background: #10b981;"></div>
-                        <span><strong>220-240V</strong> - 欧洲、亚洲、非洲、大洋洲</span>
+                        <span><strong>220-240V</strong> - 欧洲、亚洲、非洲、大洋洲大部分地区使用较高电压标准</span>
                     </div>
                 </div>
-                <div class="voltage-legend" style="margin-top: 20px;">
-                    <h4 style="width: 100%; margin-bottom: 10px;">频率标准</h4>
-                    <div class="legend-item">
-                        <div class="legend-color" style="background: #8b5cf6;"></div>
-                        <span><strong>50Hz</strong> - 全球大多数国家（欧洲、亚洲、非洲）</span>
-                    </div>
-                    <div class="legend-item">
-                        <div class="legend-color" style="background: #f59e0b;"></div>
-                        <span><strong>60Hz</strong> - 北美、日本西部、韩国、菲律宾等</span>
+                
+                <div class="frequency-section">
+                    <h3>频率标准</h3>
+                    <p>全球电网频率主要分为50Hz和60Hz两种标准，这与电力工业发展的历史路径有关。</p>
+                    
+                    <div class="voltage-legend">
+                        <div class="legend-item">
+                            <div class="legend-color" style="background: #8b5cf6;"></div>
+                            <span><strong>50Hz</strong> - 全球大多数国家采用的标准频率（欧洲、亚洲、非洲等）</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color" style="background: #f59e0b;"></div>
+                            <span><strong>60Hz</strong> - 北美、日本西部、韩国、菲律宾等地区使用</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- Country Reference Section -->
         <section id="countries">
-            <h2>🌍 主要国家/地区对照表</h2>
+            <h2>主要国家/地区对照表</h2>
             <div style="overflow-x: auto;">
                 <table class="comparison-table">
                     <thead>
@@ -541,31 +595,32 @@
             </div>
         </section>
 
+        <!-- Travel Tips Section -->
         <section id="tips">
-            <h2>💡 国际旅行电力贴士</h2>
+            <h2>国际旅行电力贴士</h2>
             <div class="tips-grid">
                 <div class="tip-card">
-                    <h4>🔌 检查设备兼容性</h4>
+                    <h4>检查设备兼容性</h4>
                     <p>现代手机、笔记本电脑充电器通常支持100-240V宽电压，但吹风机、电熨斗等大功率电器通常只支持单一电压，使用前请仔细检查设备标签。</p>
                 </div>
                 <div class="tip-card">
-                    <h4>📦 准备合适的转换器</h4>
+                    <h4>准备合适的转换器</h4>
                     <p>旅行转换插头只改变插头形状，不改变电压。如果设备不支持目的地电压，还需要携带变压器。建议选择带USB接口的多功能旅行插头。</p>
                 </div>
                 <div class="tip-card">
-                    <h4>⚡ 注意功率限制</h4>
+                    <h4>注意功率限制</h4>
                     <p>使用变压器时要注意功率匹配。变压器功率应大于设备功率的1.5倍，否则可能导致设备损坏或安全事故。</p>
                 </div>
                 <div class="tip-card">
-                    <h4>🔍 查看设备铭牌</h4>
-                    <p>设备铭牌上通常标有"Input: 100-240V~50/60Hz"等信息。如果显示宽电压范围，则可在全球安全使用；如果只有单一电压，需要变压器。</p>
+                    <h4>查看设备铭牌</h4>
+                    <p>设备铭牌上通常标有"Input: 100-240V 50/60Hz"等信息。如果显示宽电压范围，则可在全球安全使用；如果只有单一电压，需要变压器。</p>
                 </div>
             </div>
         </section>
     </main>
 
     <footer class="footer">
-        <p>🌍 全球电源插座指南 | World Power Plug Guide</p>
+        <p>全球电源插座指南 | World Power Plug Guide</p>
         <p>数据来源: IEC国际电工委员会、World Standards</p>
         <p style="margin-top: 15px;">
             Created by <a href="https://github.com/agent-vik" target="_blank">Agent Vik</a> | 
@@ -584,10 +639,9 @@
                 countries: ['美国', '加拿大', '墨西哥', '日本', '台湾', '泰国', '越南', '菲律宾'],
                 description: '两个平行的扁脚，无接地引脚。由Harvey Hubbell于1904年发明，是世界上最古老的插头设计之一。',
                 svg: `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="10" y="10" width="80" height="80" rx="8" fill="#f1f5f9" stroke="#334155" stroke-width="2"/>
-                    <rect x="25" y="25" width="8" height="35" rx="2" fill="#334155"/>
-                    <rect x="67" y="25" width="8" height="35" rx="2" fill="#334155"/>
-                    <text x="50" y="85" text-anchor="middle" font-size="10" fill="#64748b">Type A</text>
+                    <rect x="10" y="10" width="80" height="80" rx="8" fill="#1e293b" stroke="#64748b" stroke-width="2"/>
+                    <rect x="25" y="25" width="8" height="35" rx="2" fill="#f1f5f9"/>
+                    <rect x="67" y="25" width="8" height="35" rx="2" fill="#f1f5f9"/>
                 </svg>`
             },
             {
@@ -599,11 +653,10 @@
                 countries: ['美国', '加拿大', '墨西哥', '哥斯达黎加', '危地马拉'],
                 description: '在Type A基础上增加了一个圆形接地引脚，提供更好的安全性。接地引脚比两个扁平引脚更长，确保先接地后通电。',
                 svg: `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="10" y="10" width="80" height="80" rx="8" fill="#f1f5f9" stroke="#334155" stroke-width="2"/>
-                    <rect x="25" y="20" width="8" height="30" rx="2" fill="#334155"/>
-                    <rect x="67" y="20" width="8" height="30" rx="2" fill="#334155"/>
-                    <circle cx="50" cy="65" r="6" fill="#334155"/>
-                    <text x="50" y="92" text-anchor="middle" font-size="10" fill="#64748b">Type B</text>
+                    <rect x="10" y="10" width="80" height="80" rx="8" fill="#1e293b" stroke="#64748b" stroke-width="2"/>
+                    <rect x="25" y="20" width="8" height="30" rx="2" fill="#f1f5f9"/>
+                    <rect x="67" y="20" width="8" height="30" rx="2" fill="#f1f5f9"/>
+                    <circle cx="50" cy="65" r="6" fill="#f1f5f9"/>
                 </svg>`
             },
             {
@@ -615,10 +668,9 @@
                 countries: ['德国', '法国', '意大利', '西班牙', '荷兰', '比利时', '奥地利', '瑞士', '葡萄牙', '希腊', '土耳其', '俄罗斯'],
                 description: '也称为Europlug，两个圆形引脚。这是欧洲最常见的插头类型，设计精巧，可以适配多种欧洲插座。',
                 svg: `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="10" y="10" width="80" height="80" rx="8" fill="#f1f5f9" stroke="#334155" stroke-width="2"/>
-                    <circle cx="35" cy="40" r="7" fill="#334155"/>
-                    <circle cx="65" cy="40" r="7" fill="#334155"/>
-                    <text x="50" y="85" text-anchor="middle" font-size="10" fill="#64748b">Type C</text>
+                    <rect x="10" y="10" width="80" height="80" rx="8" fill="#1e293b" stroke="#64748b" stroke-width="2"/>
+                    <circle cx="35" cy="45" r="8" fill="#f1f5f9"/>
+                    <circle cx="65" cy="45" r="8" fill="#f1f5f9"/>
                 </svg>`
             },
             {
@@ -630,11 +682,10 @@
                 countries: ['印度', '尼泊尔', '巴基斯坦', '斯里兰卡', '孟加拉国', '缅甸'],
                 description: '三个圆形引脚呈三角形排列，是旧版英国标准的衍生设计。引脚间距较大，额定电流通常为6A。',
                 svg: `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="10" y="10" width="80" height="80" rx="8" fill="#f1f5f9" stroke="#334155" stroke-width="2"/>
-                    <circle cx="50" cy="30" r="6" fill="#334155"/>
-                    <circle cx="35" cy="55" r="6" fill="#334155"/>
-                    <circle cx="65" cy="55" r="6" fill="#334155"/>
-                    <text x="50" y="85" text-anchor="middle" font-size="10" fill="#64748b">Type D</text>
+                    <rect x="10" y="10" width="80" height="80" rx="8" fill="#1e293b" stroke="#64748b" stroke-width="2"/>
+                    <circle cx="50" cy="30" r="7" fill="#f1f5f9"/>
+                    <circle cx="35" cy="55" r="7" fill="#f1f5f9"/>
+                    <circle cx="65" cy="55" r="7" fill="#f1f5f9"/>
                 </svg>`
             },
             {
@@ -646,11 +697,10 @@
                 countries: ['法国', '比利时', '波兰', '捷克', '斯洛伐克', '突尼斯', '摩洛哥'],
                 description: '两个圆形引脚加上一个凸出的接地孔。插座有一个突出的接地引脚，插头有对应的接地孔。与Type F不兼容。',
                 svg: `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="10" y="10" width="80" height="80" rx="8" fill="#f1f5f9" stroke="#334155" stroke-width="2"/>
-                    <circle cx="35" cy="35" r="7" fill="#334155"/>
-                    <circle cx="65" cy="35" r="7" fill="#334155"/>
-                    <circle cx="50" cy="60" r="5" fill="none" stroke="#334155" stroke-width="2"/>
-                    <text x="50" y="88" text-anchor="middle" font-size="10" fill="#64748b">Type E</text>
+                    <rect x="10" y="10" width="80" height="80" rx="8" fill="#1e293b" stroke="#64748b" stroke-width="2"/>
+                    <circle cx="35" cy="35" r="8" fill="#f1f5f9"/>
+                    <circle cx="65" cy="35" r="8" fill="#f1f5f9"/>
+                    <circle cx="50" cy="60" r="6" fill="none" stroke="#f1f5f9" stroke-width="2"/>
                 </svg>`
             },
             {
@@ -662,12 +712,11 @@
                 countries: ['德国', '奥地利', '荷兰', '瑞典', '挪威', '芬兰', '俄罗斯', '乌克兰'],
                 description: '也称为Schuko插头，两个圆形引脚加上两侧的接地夹。这是欧洲大陆最通用的接地插头标准，额定电流16A。',
                 svg: `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="10" y="10" width="80" height="80" rx="8" fill="#f1f5f9" stroke="#334155" stroke-width="2"/>
-                    <circle cx="35" cy="40" r="7" fill="#334155"/>
-                    <circle cx="65" cy="40" r="7" fill="#334155"/>
-                    <path d="M15 50 Q10 50 10 55 L10 65 Q10 70 15 70" fill="none" stroke="#334155" stroke-width="2"/>
-                    <path d="M85 50 Q90 50 90 55 L90 65 Q90 70 85 70" fill="none" stroke="#334155" stroke-width="2"/>
-                    <text x="50" y="88" text-anchor="middle" font-size="10" fill="#64748b">Type F</text>
+                    <rect x="10" y="10" width="80" height="80" rx="8" fill="#1e293b" stroke="#64748b" stroke-width="2"/>
+                    <circle cx="35" cy="45" r="8" fill="#f1f5f9"/>
+                    <circle cx="65" cy="45" r="8" fill="#f1f5f9"/>
+                    <path d="M15 55 Q10 55 10 60 L10 70 Q10 75 15 75" fill="none" stroke="#f1f5f9" stroke-width="2"/>
+                    <path d="M85 55 Q90 55 90 60 L90 70 Q90 75 85 75" fill="none" stroke="#f1f5f9" stroke-width="2"/>
                 </svg>`
             },
             {
@@ -679,11 +728,10 @@
                 countries: ['英国', '爱尔兰', '香港', '新加坡', '马来西亚', '沙特阿拉伯', '阿联酋', '卡塔尔'],
                 description: '三个长方形引脚呈三角形排列，带有保险丝保护。设计精良，安全性极高。是世界上识别度最高的插头之一。',
                 svg: `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="10" y="10" width="80" height="80" rx="8" fill="#f1f5f9" stroke="#334155" stroke-width="2"/>
-                    <rect x="44" y="20" width="12" height="25" rx="2" fill="#334155"/>
-                    <rect x="28" y="55" width="10" height="20" rx="2" fill="#334155"/>
-                    <rect x="62" y="55" width="10" height="20" rx="2" fill="#334155"/>
-                    <text x="50" y="92" text-anchor="middle" font-size="10" fill="#64748b">Type G</text>
+                    <rect x="10" y="10" width="80" height="80" rx="8" fill="#1e293b" stroke="#64748b" stroke-width="2"/>
+                    <rect x="44" y="22" width="12" height="25" rx="2" fill="#f1f5f9"/>
+                    <rect x="28" y="57" width="10" height="20" rx="2" fill="#f1f5f9"/>
+                    <rect x="62" y="57" width="10" height="20" rx="2" fill="#f1f5f9"/>
                 </svg>`
             },
             {
@@ -692,14 +740,13 @@
                 region: 'asia',
                 voltage: '220-240V',
                 frequency: '50Hz',
-                countries: ['以色列', '巴勒斯坦', '加沙地带'],
+                countries: ['以色列', '巴勒斯坦'],
                 description: '三个圆形引脚呈Y形排列。独特的以色列标准，现代版本也兼容Type C的扁脚。额定电流16A。',
                 svg: `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="10" y="10" width="80" height="80" rx="8" fill="#f1f5f9" stroke="#334155" stroke-width="2"/>
-                    <circle cx="50" cy="30" r="6" fill="#334155"/>
-                    <circle cx="30" cy="60" r="6" fill="#334155"/>
-                    <circle cx="70" cy="60" r="6" fill="#334155"/>
-                    <text x="50" y="88" text-anchor="middle" font-size="10" fill="#64748b">Type H</text>
+                    <rect x="10" y="10" width="80" height="80" rx="8" fill="#1e293b" stroke="#64748b" stroke-width="2"/>
+                    <circle cx="50" cy="30" r="7" fill="#f1f5f9"/>
+                    <circle cx="30" cy="60" r="7" fill="#f1f5f9"/>
+                    <circle cx="70" cy="60" r="7" fill="#f1f5f9"/>
                 </svg>`
             },
             {
@@ -711,11 +758,10 @@
                 countries: ['澳大利亚', '新西兰', '中国', '阿根廷', '巴布亚新几内亚', '斐济'],
                 description: '两个斜向的扁平引脚加一个垂直的接地引脚。中国使用的是简化版本，两个扁脚平行排列。',
                 svg: `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="10" y="10" width="80" height="80" rx="8" fill="#f1f5f9" stroke="#334155" stroke-width="2"/>
-                    <rect x="25" y="25" width="8" height="30" rx="2" fill="#334155" transform="rotate(30 29 40)"/>
-                    <rect x="67" y="25" width="8" height="30" rx="2" fill="#334155" transform="rotate(-30 71 40)"/>
-                    <rect x="46" y="55" width="8" height="20" rx="2" fill="#334155"/>
-                    <text x="50" y="92" text-anchor="middle" font-size="10" fill="#64748b">Type I</text>
+                    <rect x="10" y="10" width="80" height="80" rx="8" fill="#1e293b" stroke="#64748b" stroke-width="2"/>
+                    <rect x="25" y="28" width="8" height="28" rx="2" fill="#f1f5f9" transform="rotate(30 29 42)"/>
+                    <rect x="67" y="28" width="8" height="28" rx="2" fill="#f1f5f9" transform="rotate(-30 71 42)"/>
+                    <rect x="46" y="55" width="8" height="20" rx="2" fill="#f1f5f9"/>
                 </svg>`
             },
             {
@@ -724,14 +770,13 @@
                 region: 'europe',
                 voltage: '220-240V',
                 frequency: '50Hz',
-                countries: ['瑞士', '列支敦士登', '卢旺达'],
+                countries: ['瑞士', '列支敦士登'],
                 description: '三个圆形引脚，与Type C类似但增加了接地引脚。插座为六边形设计，可以防止插错方向。',
                 svg: `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="10" y="10" width="80" height="80" rx="8" fill="#f1f5f9" stroke="#334155" stroke-width="2"/>
-                    <circle cx="35" cy="35" r="5" fill="#334155"/>
-                    <circle cx="65" cy="35" r="5" fill="#334155"/>
-                    <circle cx="50" cy="55" r="5" fill="#334155"/>
-                    <text x="50" y="88" text-anchor="middle" font-size="10" fill="#64748b">Type J</text>
+                    <rect x="10" y="10" width="80" height="80" rx="8" fill="#1e293b" stroke="#64748b" stroke-width="2"/>
+                    <circle cx="35" cy="38" r="6" fill="#f1f5f9"/>
+                    <circle cx="65" cy="38" r="6" fill="#f1f5f9"/>
+                    <circle cx="50" cy="58" r="6" fill="#f1f5f9"/>
                 </svg>`
             },
             {
@@ -740,14 +785,13 @@
                 region: 'europe',
                 voltage: '220-240V',
                 frequency: '50Hz',
-                countries: ['丹麦', '格陵兰', '孟加拉国'],
+                countries: ['丹麦', '格陵兰'],
                 description: '类似Type E，但接地引脚在插头上而非插座上。丹麦现在也接受Type F插头。',
                 svg: `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="10" y="10" width="80" height="80" rx="8" fill="#f1f5f9" stroke="#334155" stroke-width="2"/>
-                    <circle cx="35" cy="35" r="7" fill="#334155"/>
-                    <circle cx="65" cy="35" r="7" fill="#334155"/>
-                    <rect x="46" y="50" width="8" height="18" rx="2" fill="#334155"/>
-                    <text x="50" y="88" text-anchor="middle" font-size="10" fill="#64748b">Type K</text>
+                    <rect x="10" y="10" width="80" height="80" rx="8" fill="#1e293b" stroke="#64748b" stroke-width="2"/>
+                    <circle cx="35" cy="35" r="8" fill="#f1f5f9"/>
+                    <circle cx="65" cy="35" r="8" fill="#f1f5f9"/>
+                    <rect x="46" y="52" width="8" height="18" rx="2" fill="#f1f5f9"/>
                 </svg>`
             },
             {
@@ -756,14 +800,13 @@
                 region: 'europe',
                 voltage: '220-240V',
                 frequency: '50Hz',
-                countries: ['意大利', '智利', '古巴', '叙利亚', '利比亚', '马尔代夫'],
+                countries: ['意大利', '智利', '古巴'],
                 description: '三个圆形引脚排成一行。意大利有两种规格：10A（小间距）和16A（大间距）。现代意大利插座通常同时兼容两种。',
                 svg: `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="10" y="10" width="80" height="80" rx="8" fill="#f1f5f9" stroke="#334155" stroke-width="2"/>
-                    <circle cx="25" cy="45" r="6" fill="#334155"/>
-                    <circle cx="50" cy="45" r="6" fill="#334155"/>
-                    <circle cx="75" cy="45" r="6" fill="#334155"/>
-                    <text x="50" y="88" text-anchor="middle" font-size="10" fill="#64748b">Type L</text>
+                    <rect x="10" y="10" width="80" height="80" rx="8" fill="#1e293b" stroke="#64748b" stroke-width="2"/>
+                    <circle cx="25" cy="50" r="7" fill="#f1f5f9"/>
+                    <circle cx="50" cy="50" r="7" fill="#f1f5f9"/>
+                    <circle cx="75" cy="50" r="7" fill="#f1f5f9"/>
                 </svg>`
             },
             {
@@ -772,14 +815,13 @@
                 region: 'africa',
                 voltage: '220-240V',
                 frequency: '50Hz',
-                countries: ['南非', '斯威士兰', '莱索托', '博茨瓦纳', '莫桑比克', '中国香港(旧式)'],
+                countries: ['南非', '斯威士兰', '莱索托', '博茨瓦纳', '莫桑比克'],
                 description: '与Type D相似但引脚更大，额定电流15A。是旧版英国标准的另一衍生版本。南非正在逐步过渡到Type N。',
                 svg: `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="10" y="10" width="80" height="80" rx="8" fill="#f1f5f9" stroke="#334155" stroke-width="2"/>
-                    <circle cx="50" cy="28" r="8" fill="#334155"/>
-                    <circle cx="32" cy="58" r="8" fill="#334155"/>
-                    <circle cx="68" cy="58" r="8" fill="#334155"/>
-                    <text x="50" y="90" text-anchor="middle" font-size="10" fill="#64748b">Type M</text>
+                    <rect x="10" y="10" width="80" height="80" rx="8" fill="#1e293b" stroke="#64748b" stroke-width="2"/>
+                    <circle cx="50" cy="28" r="9" fill="#f1f5f9"/>
+                    <circle cx="32" cy="58" r="9" fill="#f1f5f9"/>
+                    <circle cx="68" cy="58" r="9" fill="#f1f5f9"/>
                 </svg>`
             },
             {
@@ -788,14 +830,13 @@
                 region: 'americas',
                 voltage: '127-220V',
                 frequency: '60Hz',
-                countries: ['巴西', '南非(新式)'],
+                countries: ['巴西'],
                 description: '基于IEC 60906-1国际标准设计，两个圆形引脚加接地孔。巴西各地电压不同，从127V到220V都有。',
                 svg: `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="10" y="10" width="80" height="80" rx="8" fill="#f1f5f9" stroke="#334155" stroke-width="2"/>
-                    <circle cx="35" cy="35" r="7" fill="#334155"/>
-                    <circle cx="65" cy="35" r="7" fill="#334155"/>
-                    <circle cx="50" cy="62" r="5" fill="none" stroke="#334155" stroke-width="2"/>
-                    <text x="50" y="88" text-anchor="middle" font-size="10" fill="#64748b">Type N</text>
+                    <rect x="10" y="10" width="80" height="80" rx="8" fill="#1e293b" stroke="#64748b" stroke-width="2"/>
+                    <circle cx="35" cy="35" r="8" fill="#f1f5f9"/>
+                    <circle cx="65" cy="35" r="8" fill="#f1f5f9"/>
+                    <circle cx="50" cy="62" r="6" fill="none" stroke="#f1f5f9" stroke-width="2"/>
                 </svg>`
             },
             {
@@ -804,14 +845,13 @@
                 region: 'asia',
                 voltage: '220V',
                 frequency: '50Hz',
-                countries: ['泰国(新式)'],
+                countries: ['泰国'],
                 description: '泰国新标准，基于IEC 60906-1国际标准，正在逐步推广。与Type N相似但规格略有不同。',
                 svg: `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="10" y="10" width="80" height="80" rx="8" fill="#f1f5f9" stroke="#334155" stroke-width="2"/>
-                    <circle cx="35" cy="32" r="6" fill="#334155"/>
-                    <circle cx="65" cy="32" r="6" fill="#334155"/>
-                    <rect x="46" y="48" width="8" height="18" rx="4" fill="#334155"/>
-                    <text x="50" y="88" text-anchor="middle" font-size="10" fill="#64748b">Type O</text>
+                    <rect x="10" y="10" width="80" height="80" rx="8" fill="#1e293b" stroke="#64748b" stroke-width="2"/>
+                    <circle cx="35" cy="35" r="7" fill="#f1f5f9"/>
+                    <circle cx="65" cy="35" r="7" fill="#f1f5f9"/>
+                    <rect x="46" y="50" width="8" height="18" rx="4" fill="#f1f5f9"/>
                 </svg>`
             }
         ];
@@ -875,6 +915,10 @@
                 .forEach(plug => {
                     const card = document.createElement('div');
                     card.className = 'plug-card';
+                    
+                    const displayCountries = plug.countries.slice(0, 4);
+                    const remainingCount = plug.countries.length - 4;
+                    
                     card.innerHTML = `
                         <div class="plug-header">
                             <span class="plug-type-badge">${plug.type}</span>
@@ -882,13 +926,13 @@
                         </div>
                         <div class="plug-svg-container">${plug.svg}</div>
                         <div class="plug-info">
-                            <p><span class="label">电压:</span><span class="value">${plug.voltage}</span></p>
-                            <p><span class="label">频率:</span><span class="value">${plug.frequency}</span></p>
-                            <p style="margin-top: 10px;">${plug.description}</p>
+                            <p><span class="label">电压</span><span class="value">${plug.voltage}</span></p>
+                            <p><span class="label">频率</span><span class="value">${plug.frequency}</span></p>
                         </div>
+                        <p class="plug-description">${plug.description}</p>
                         <div class="country-tags">
-                            ${plug.countries.slice(0, 5).map(c => `<span class="country-tag">${c}</span>`).join('')}
-                            ${plug.countries.length > 5 ? `<span class="country-tag">+${plug.countries.length - 5}</span>` : ''}
+                            ${displayCountries.map(c => `<span class="country-tag">${c}</span>`).join('')}
+                            ${remainingCount > 0 ? `<span class="country-more">等${plug.countries.length}国</span>` : ''}
                         </div>
                     `;
                     grid.appendChild(card);
