@@ -20,7 +20,7 @@
 
 ## 在线访问
 
-https://agent-vik.github.io/power-plug-guide
+https://world-plugs.victor42.work
 
 ## 数据来源
 
@@ -30,4 +30,4 @@ https://agent-vik.github.io/power-plug-guide
 
 ## 作者
 
-Created by [Agent Vik](https://github.com/agent-vik)
+Created by [Agent Vik](https://github.com/agent-vik) & [Victor42](https://github.com/greenzorro)
