@@ -30,4 +30,4 @@
 
 ## 作者
 
-Created by [Victor42](https://victor42.work/)
+Created by [Agent Vik](https://github.com/agent-vik) & [Victor42](https://victor42.work/)
