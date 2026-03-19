@@ -636,39 +636,39 @@
     <main class="container">
         <!-- Overview Section -->
         <section id="overview">
-            <h2>Global Power Standards Overview</h2>
+            <h2 data-i18n="overview_title">Global Power Standards Overview</h2>
             <div class="stats">
                 <div class="stat-card">
                     <div class="stat-number">15</div>
-                    <div class="stat-label">Plug Types</div>
+                    <div class="stat-label" data-i18n="stat_plug_types">Plug Types</div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-number">2</div>
-                    <div class="stat-label">Voltage Standards</div>
+                    <div class="stat-label" data-i18n="stat_voltage_standards">Voltage Standards</div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-number">2</div>
-                    <div class="stat-label">Frequency Standards</div>
+                    <div class="stat-label" data-i18n="stat_frequency_standards">Frequency Standards</div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-number">200+</div>
-                    <div class="stat-label">Countries/Regions</div>
+                    <div class="stat-label" data-i18n="stat_countries">Countries/Regions</div>
                 </div>
             </div>
         </section>
 
         <!-- Plug Types Section -->
         <section id="types">
-            <h2>Plug Type Guide</h2>
+            <h2 data-i18n="types_title">Plug Type Guide</h2>
             <div class="search-section">
-                <input type="text" class="search-input" id="searchInput" placeholder="Search plug type or country...">
+                <input type="text" class="search-input" id="searchInput" data-i18n-placeholder="search_placeholder" placeholder="Search plug type or country...">
                 <div class="filter-buttons">
-                    <button class="filter-btn active" data-filter="all">All</button>
-                    <button class="filter-btn" data-filter="americas">Americas</button>
-                    <button class="filter-btn" data-filter="europe">Europe</button>
-                    <button class="filter-btn" data-filter="asia">Asia</button>
-                    <button class="filter-btn" data-filter="africa">Africa</button>
-                    <button class="filter-btn" data-filter="oceania">Oceania</button>
+                    <button class="filter-btn active" data-filter="all" data-i18n="filter_all">All</button>
+                    <button class="filter-btn" data-filter="americas" data-i18n="filter_americas">Americas</button>
+                    <button class="filter-btn" data-filter="europe" data-i18n="filter_europe">Europe</button>
+                    <button class="filter-btn" data-filter="asia" data-i18n="filter_asia">Asia</button>
+                    <button class="filter-btn" data-filter="africa" data-i18n="filter_africa">Africa</button>
+                    <button class="filter-btn" data-filter="oceania" data-i18n="filter_oceania">Oceania</button>
                 </div>
             </div>
             <div class="plug-grid" id="plugGrid"></div>
@@ -676,23 +676,23 @@
 
         <!-- Voltage & Frequency Section -->
         <section id="voltage">
-            <h2>Voltage & Frequency Standards</h2>
+            <h2 data-i18n="voltage_title">Voltage & Frequency Standards</h2>
             <div class="voltage-section">
-                <h3>Global Voltage Distribution</h3>
-                <p>There are two main voltage standard systems in the world, closely related to historical development and technological choices. Understanding the voltage standard of your destination is crucial for safely using electrical appliances.</p>
+                <h3 data-i18n="voltage_global">Global Voltage Distribution</h3>
+                <p data-i18n="voltage_intro">There are two main voltage standard systems in the world, closely related to historical development and technological choices. Understanding the voltage standard of your destination is crucial for safely using electrical appliances.</p>
                 
                 <div class="voltage-list">
-                    <p class="voltage-item"><strong>100-127V</strong> <span>— Used in North America, Japan, Taiwan and other regions</span></p>
-                    <p class="voltage-item"><strong>220-240V</strong> <span>— Used in most of Europe, Asia, Africa and Oceania</span></p>
+                    <p class="voltage-item"><strong>100-127V</strong> <span data-i18n="voltage_low_desc">— Used in North America, Japan, Taiwan and other regions</span></p>
+                    <p class="voltage-item"><strong>220-240V</strong> <span data-i18n="voltage_high_desc">— Used in most of Europe, Asia, Africa and Oceania</span></p>
                 </div>
                 
                 <div class="frequency-section">
-                    <h3>Frequency Standards</h3>
-                    <p>Global grid frequency is mainly divided into 50Hz and 60Hz standards, related to the historical path of power industry development.</p>
+                    <h3 data-i18n="frequency_title">Frequency Standards</h3>
+                    <p data-i18n="frequency_intro">Global grid frequency is mainly divided into 50Hz and 60Hz standards, related to the historical path of power industry development.</p>
                     
                     <div class="voltage-list">
-                        <p class="voltage-item"><strong>50Hz</strong> <span>— Standard frequency adopted by most countries worldwide</span></p>
-                        <p class="voltage-item"><strong>60Hz</strong> <span>— Used in North America, western Japan, South Korea, Philippines</span></p>
+                        <p class="voltage-item"><strong>50Hz</strong> <span data-i18n="freq_50hz_desc">— Standard frequency adopted by most countries worldwide</span></p>
+                        <p class="voltage-item"><strong>60Hz</strong> <span data-i18n="freq_60hz_desc">— Used in North America, western Japan, South Korea, Philippines</span></p>
                     </div>
                 </div>
             </div>
@@ -700,20 +700,20 @@
 
         <!-- Country Reference Section -->
         <section id="countries">
-            <h2>Country/Region Reference Table</h2>
+            <h2 data-i18n="countries_title">Country/Region Reference Table</h2>
             <div class="table-container">
                 <button class="table-toggle" id="tableToggle">
-                    <span>Click to expand for more countries</span>
+                    <span data-i18n="table_toggle_expand">Click to expand for more countries</span>
                     <span class="table-toggle-icon">▼</span>
                 </button>
                 <div class="table-content" id="tableContent">
                     <table class="comparison-table">
                         <thead>
                             <tr>
-                                <th>Country/Region</th>
-                                <th>Plug Type</th>
-                                <th>Voltage</th>
-                                <th>Frequency</th>
+                                <th data-i18n="table_country">Country/Region</th>
+                                <th data-i18n="table_plug">Plug Type</th>
+                                <th data-i18n="table_voltage">Voltage</th>
+                                <th data-i18n="table_frequency">Frequency</th>
                             </tr>
                         </thead>
                         <tbody id="countryTable"></tbody>
@@ -724,33 +724,33 @@
 
         <!-- Travel Tips Section -->
         <section id="tips">
-            <h2>International Travel Power Tips</h2>
+            <h2 data-i18n="tips_title">International Travel Power Tips</h2>
             <div class="tips-grid">
                 <div class="tip-card">
-                    <h4>Check Device Compatibility</h4>
-                    <p>Modern phone and laptop chargers usually support 100-240V wide voltage, but high-power appliances like hair dryers and irons usually only support single voltage. Check device labels carefully before use.</p>
+                    <h4 data-i18n="tip1_title">Check Device Compatibility</h4>
+                    <p data-i18n="tip1_desc">Modern phone and laptop chargers usually support 100-240V wide voltage, but high-power appliances like hair dryers and irons usually only support single voltage. Check device labels carefully before use.</p>
                 </div>
                 <div class="tip-card">
-                    <h4>Prepare Proper Adapters</h4>
-                    <p>Travel plug adapters only change the plug shape, not the voltage. If your device doesn't support the destination voltage, you also need a transformer. Choose a multi-function travel adapter with USB ports.</p>
+                    <h4 data-i18n="tip2_title">Prepare Proper Adapters</h4>
+                    <p data-i18n="tip2_desc">Travel plug adapters only change the plug shape, not the voltage. If your device doesn't support the destination voltage, you also need a transformer. Choose a multi-function travel adapter with USB ports.</p>
                 </div>
                 <div class="tip-card">
-                    <h4>Mind Power Limits</h4>
-                    <p>When using a transformer, make sure the power rating matches. Transformer power should be at least 1.5 times the device power, otherwise it may cause device damage or safety hazards.</p>
+                    <h4 data-i18n="tip3_title">Mind Power Limits</h4>
+                    <p data-i18n="tip3_desc">When using a transformer, make sure the power rating matches. Transformer power should be at least 1.5 times the device power, otherwise it may cause device damage or safety hazards.</p>
                 </div>
                 <div class="tip-card">
-                    <h4>Check Device Label</h4>
-                    <p>Device labels usually show "Input: 100-240V 50/60Hz". If it shows a wide voltage range, it can be used safely worldwide; if only single voltage, you need a transformer.</p>
+                    <h4 data-i18n="tip4_title">Check Device Label</h4>
+                    <p data-i18n="tip4_desc">Device labels usually show "Input: 100-240V 50/60Hz". If it shows a wide voltage range, it can be used safely worldwide; if only single voltage, you need a transformer.</p>
                 </div>
             </div>
         </section>
     </main>
 
     <footer class="footer">
-        <p>World Power Plug Guide</p>
-        <p>Data sources: IEC, World Standards</p>
+        <p data-i18n="footer_title">World Power Plug Guide</p>
+        <p data-i18n="footer_source">Data sources: IEC, World Standards</p>
         <p style="margin-top: 15px;">
-            Created by <a href="https://github.com/agent-vik" target="_blank">Agent Vik</a> & <a href="https://github.com/greenzorro" target="_blank">Victor42</a> |
+            <span data-i18n="footer_created">Created by</span> <a href="https://github.com/agent-vik" target="_blank">Agent Vik</a> & <a href="https://github.com/greenzorro" target="_blank">Victor42</a> |
             <a href="https://github.com/agent-vik/power-plug-guide" target="_blank">Code</a>
         </p>
     </footer>
@@ -1380,7 +1380,7 @@
                         <p class="plug-description">${plugTrans.desc}</p>
                         <div class="country-tags">
                             ${translatedCountries.map(c => `<span class="country-tag">${c}</span>`).join('')}
-                            ${remainingCount > 0 ? `<span class="country-more">${currentLang === 'en' ? `+${remainingCount} more` : `等${plug.countries.length}国`}</span>` : ''}
+                            ${remainingCount > 0 ? `<span class="country-more">+${remainingCount} ${t('countries_more')}</span>` : ''}
                         </div>
                     `;
                     grid.appendChild(card);
@@ -1451,7 +1451,7 @@
                 const isExpanded = tableContent.classList.toggle('expanded');
                 tableToggle.classList.toggle('expanded');
                 tableToggle.querySelector('span:first-child').textContent = 
-                    isExpanded ? '点击收起' : '点击展开查看更多国家';
+                    isExpanded ? t('table_toggle_collapse') : t('table_toggle_expand');
             });
 
             // Scroll spy for navigation highlighting
