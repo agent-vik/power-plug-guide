@@ -39,7 +39,7 @@
             padding: 100px 20px;
             text-align: center;
             background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.95)), 
-                        url('https://images.unsplash.com/photo-1599340455882-1eb26dc2a387?w=1920&q=80') center/cover no-repeat;
+                        url('assets/header-bg.jpg') center/cover no-repeat;
         }
 
         /* Navigation active state */
@@ -380,8 +380,14 @@
         /* Tips Section */
         .tips-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(2, 1fr);
             gap: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .tips-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         .tip-card {
