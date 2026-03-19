@@ -111,6 +111,7 @@
             padding: 0 20px;
             display: flex;
             justify-content: center;
+            align-items: center;
             gap: 5px;
             flex-wrap: wrap;
         }
@@ -128,6 +129,41 @@
         .nav a:hover {
             color: var(--accent);
             border-bottom-color: var(--accent);
+        }
+
+        /* Language Switcher */
+        .lang-switcher {
+            display: flex;
+            align-items: center;
+            gap: 0;
+            margin-left: 15px;
+            padding-left: 15px;
+            border-left: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .lang-btn {
+            background: none;
+            border: none;
+            color: rgba(255,255,255,0.5);
+            font-size: 0.9rem;
+            cursor: pointer;
+            padding: 8px 6px;
+            transition: color 0.2s;
+            font-family: inherit;
+        }
+
+        .lang-btn:hover {
+            color: rgba(255,255,255,0.8);
+        }
+
+        .lang-btn.active {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .lang-divider {
+            color: rgba(255,255,255,0.3);
+            font-size: 0.85rem;
         }
 
         /* Main Content */
@@ -531,6 +567,16 @@
                 font-size: 0.85rem;
             }
 
+            .lang-switcher {
+                margin-left: 10px;
+                padding-left: 10px;
+            }
+
+            .lang-btn {
+                font-size: 0.8rem;
+                padding: 6px 4px;
+            }
+
             .container {
                 padding: 30px 15px;
                 margin: 0 10px;
@@ -582,11 +628,16 @@
 
     <nav class="nav">
         <div class="nav-inner">
-            <a href="#overview">概览</a>
-            <a href="#types">插座类型</a>
-            <a href="#voltage">电压频率</a>
-            <a href="#countries">国家对照</a>
-            <a href="#tips">旅行贴士</a>
+            <a href="#overview" data-i18n="nav_overview">Overview</a>
+            <a href="#types" data-i18n="nav_types">Plug Types</a>
+            <a href="#voltage" data-i18n="nav_voltage">Voltage</a>
+            <a href="#countries" data-i18n="nav_countries">Countries</a>
+            <a href="#tips" data-i18n="nav_tips">Travel Tips</a>
+            <div class="lang-switcher">
+                <button class="lang-btn active" data-lang="en">EN</button>
+                <span class="lang-divider">/</span>
+                <button class="lang-btn" data-lang="zh">中文</button>
+            </div>
         </div>
     </nav>
 
@@ -713,6 +764,321 @@
     </footer>
 
     <script>
+        // ========== Translation System ==========
+        let currentLang = localStorage.getItem('lang') || 'en';
+
+        const translations = {
+            en: {
+                // Header
+                title: 'World Power Plug Guide',
+                subtitle: 'Learn about plug types, voltage and frequency standards worldwide to prepare for your international travel',
+                
+                // Navigation
+                nav_overview: 'Overview',
+                nav_types: 'Plug Types',
+                nav_voltage: 'Voltage',
+                nav_countries: 'Countries',
+                nav_tips: 'Travel Tips',
+                
+                // Overview Section
+                overview_title: 'Global Power Standards Overview',
+                stat_plug_types: 'Plug Types',
+                stat_voltage_standards: 'Voltage Standards',
+                stat_frequency_standards: 'Frequency Standards',
+                stat_countries: 'Countries/Regions',
+                
+                // Plug Types Section
+                types_title: 'Plug Type Guide',
+                search_placeholder: 'Search plug type or country...',
+                filter_all: 'All',
+                filter_americas: 'Americas',
+                filter_europe: 'Europe',
+                filter_asia: 'Asia',
+                filter_africa: 'Africa',
+                filter_oceania: 'Oceania',
+                label_voltage: 'Voltage',
+                label_frequency: 'Frequency',
+                countries_more: 'more',
+                
+                // Voltage values
+                voltage_low: '100-127V',
+                voltage_low_desc: '— Used in North America, Japan, Taiwan and other regions',
+                voltage_high: '220-240V',
+                voltage_high_desc: '— Used in most of Europe, Asia, Africa and Oceania',
+                freq_50hz: '50Hz',
+                freq_50hz_desc: '— Standard frequency adopted by most countries worldwide',
+                freq_60hz: '60Hz',
+                freq_60hz_desc: '— Used in North America, western Japan, South Korea, Philippines',
+                
+                // Voltage Section
+                voltage_title: 'Voltage & Frequency Standards',
+                voltage_global: 'Global Voltage Distribution',
+                voltage_intro: 'There are two main voltage standard systems in the world, which are closely related to historical development and technological choices. Understanding the voltage standard of your destination is crucial for safely using electrical appliances.',
+                voltage_low: '100-127V',
+                voltage_low_desc: '— Used in North America, Japan, Taiwan and other regions',
+                voltage_high: '220-240V',
+                voltage_high_desc: '— Used in most of Europe, Asia, Africa and Oceania',
+                frequency_title: 'Frequency Standards',
+                frequency_intro: 'Global grid frequency is mainly divided into 50Hz and 60Hz standards, which is related to the historical path of power industry development.',
+                freq_50hz: '50Hz',
+                freq_50hz_desc: '— Standard frequency adopted by most countries worldwide',
+                freq_60hz: '60Hz',
+                freq_60hz_desc: '— Used in North America, western Japan, South Korea, Philippines',
+                
+                // Countries Section
+                countries_title: 'Country/Region Reference Table',
+                table_toggle_expand: 'Click to expand for more countries',
+                table_toggle_collapse: 'Click to collapse',
+                table_country: 'Country/Region',
+                table_plug: 'Plug Type',
+                table_voltage: 'Voltage',
+                table_frequency: 'Frequency',
+                
+                // Tips Section
+                tips_title: 'International Travel Power Tips',
+                tip1_title: 'Check Device Compatibility',
+                tip1_desc: 'Modern phone and laptop chargers usually support 100-240V wide voltage, but high-power appliances like hair dryers and irons usually only support single voltage. Check device labels carefully before use.',
+                tip2_title: 'Prepare Proper Adapters',
+                tip2_desc: 'Travel plug adapters only change the plug shape, not the voltage. If your device doesn\'t support the destination voltage, you also need a transformer. Choose a multi-function travel adapter with USB ports.',
+                tip3_title: 'Mind Power Limits',
+                tip3_desc: 'When using a transformer, make sure the power rating matches. Transformer power should be at least 1.5 times the device power, otherwise it may cause device damage or safety hazards.',
+                tip4_title: 'Check Device Label',
+                tip4_desc: 'Device labels usually show "Input: 100-240V 50/60Hz". If it shows a wide voltage range, it can be used safely worldwide; if only single voltage, you need a transformer.',
+                
+                // Footer
+                footer_title: 'World Power Plug Guide',
+                footer_source: 'Data sources: IEC, World Standards',
+                footer_created: 'Created by'
+            },
+            zh: {
+                // Header
+                title: '全球电源插座指南',
+                subtitle: '了解世界各国的插座类型、电压和频率标准，为您的国际旅行做好准备',
+                
+                // Navigation
+                nav_overview: '概览',
+                nav_types: '插座类型',
+                nav_voltage: '电压频率',
+                nav_countries: '国家对照',
+                nav_tips: '旅行贴士',
+                
+                // Overview Section
+                overview_title: '全球电力标准概览',
+                stat_plug_types: '种主要插座类型',
+                stat_voltage_standards: '种主要电压标准',
+                stat_frequency_standards: '种主要频率标准',
+                stat_countries: '个国家/地区',
+                
+                // Plug Types Section
+                types_title: '插座类型详解',
+                search_placeholder: '搜索插座类型或国家...',
+                filter_all: '全部',
+                filter_americas: '美洲',
+                filter_europe: '欧洲',
+                filter_asia: '亚洲',
+                filter_africa: '非洲',
+                filter_oceania: '大洋洲',
+                label_voltage: '电压',
+                label_frequency: '频率',
+                countries_more: '等国',
+                
+                // Voltage Section
+                voltage_title: '电压与频率标准',
+                voltage_global: '全球电压分布',
+                voltage_intro: '世界上主要存在两种电压标准体系，这与历史发展和技术选择密切相关。了解目的地的电压标准对于安全使用电器至关重要。',
+                voltage_low: '100-127V',
+                voltage_low_desc: '— 北美、日本、台湾等地区使用较低电压标准',
+                voltage_high: '220-240V',
+                voltage_high_desc: '— 欧洲、亚洲、非洲、大洋洲大部分地区使用较高电压标准',
+                frequency_title: '频率标准',
+                frequency_intro: '全球电网频率主要分为50Hz和60Hz两种标准，这与电力工业发展的历史路径有关。',
+                freq_50hz: '50Hz',
+                freq_50hz_desc: '— 全球大多数国家采用的标准频率（欧洲、亚洲、非洲等）',
+                freq_60hz: '60Hz',
+                freq_60hz_desc: '— 北美、日本西部、韩国、菲律宾等地区使用',
+                
+                // Countries Section
+                countries_title: '主要国家/地区对照表',
+                table_toggle_expand: '点击展开查看更多国家',
+                table_toggle_collapse: '点击收起',
+                table_country: '国家/地区',
+                table_plug: '插座类型',
+                table_voltage: '电压',
+                table_frequency: '频率',
+                
+                // Tips Section
+                tips_title: '国际旅行电力贴士',
+                tip1_title: '检查设备兼容性',
+                tip1_desc: '现代手机、笔记本电脑充电器通常支持100-240V宽电压，但吹风机、电熨斗等大功率电器通常只支持单一电压，使用前请仔细检查设备标签。',
+                tip2_title: '准备合适的转换器',
+                tip2_desc: '旅行转换插头只改变插头形状，不改变电压。如果设备不支持目的地电压，还需要携带变压器。建议选择带USB接口的多功能旅行插头。',
+                tip3_title: '注意功率限制',
+                tip3_desc: '使用变压器时要注意功率匹配。变压器功率应大于设备功率的1.5倍，否则可能导致设备损坏或安全事故。',
+                tip4_title: '查看设备铭牌',
+                tip4_desc: '设备铭牌上通常标有"Input: 100-240V 50/60Hz"等信息。如果显示宽电压范围，则可在全球安全使用；如果只有单一电压，需要变压器。',
+                
+                // Footer
+                footer_title: '全球电源插座指南',
+                footer_source: '数据来源: IEC国际电工委员会、World Standards',
+                footer_created: 'Created by'
+            }
+        };
+
+        // Plug type translations
+        const plugTranslations = {
+            en: {
+                A: { name: 'American 2-flat', desc: 'Two parallel flat pins, no ground. Invented by Harvey Hubbell in 1904, one of the oldest plug designs in the world.' },
+                B: { name: 'American 3-pin', desc: 'Type A with an additional round ground pin. Ground pin is longer, ensuring ground connection before power.' },
+                C: { name: 'Europlug', desc: 'Two round pins. Also known as Europlug, the most common plug type in Europe, designed to fit multiple European sockets.' },
+                D: { name: 'Indian 3-round', desc: 'Three round pins in triangular arrangement, derived from old British standard. Ground pin is thicker than power pins.' },
+                E: { name: 'French 2-pin', desc: 'Two round pins with protruding ground pin on socket. Ground connects before power for enhanced safety.' },
+                F: { name: 'German Schuko', desc: 'Two round pins with side grounding clips. Also called Schuko, the most common grounded plug standard in continental Europe.' },
+                G: { name: 'British 3-rectangular', desc: 'Three rectangular pins in triangular arrangement with built-in fuse. One of the most recognizable plug designs worldwide.' },
+                H: { name: 'Israeli 3-pin', desc: 'Three round pins in Y-shaped arrangement. Modern versions also accept Type C flat pins.' },
+                I: { name: 'Australian 3-pin', desc: 'Two oblique flat pins plus vertical ground pin. China uses a simplified version with parallel flat pins.' },
+                J: { name: 'Swiss 3-pin', desc: 'Three round pins with hexagonal socket design that prevents incorrect insertion.' },
+                K: { name: 'Danish 3-pin', desc: 'Similar to Type E but with ground pin on plug rather than socket. Denmark now also accepts Type F plugs.' },
+                L: { name: 'Italian 3-round', desc: 'Three round pins in a row. Italy has two variants: 10A (smaller spacing) and 16A (larger spacing).' },
+                M: { name: 'South African 3-round', desc: 'Similar to Type D but with larger pins. South Africa is gradually transitioning to Type N.' },
+                N: { name: 'Brazilian 2-pin', desc: 'Based on IEC 60906-1 international standard. Considered a candidate for future global standard.' },
+                O: { name: 'Thai 3-pin', desc: 'Thai new standard based on IEC 60906-1, gradually being adopted alongside existing Type A/B/C sockets.' }
+            },
+            zh: {
+                A: { name: '美标两扁插头', desc: '两个平行的扁脚，无接地引脚。由Harvey Hubbell于1904年发明，是世界上最古老的插头设计之一。' },
+                B: { name: '美标三脚插头', desc: '在Type A基础上增加了一个圆形接地引脚，提供更好的安全性。接地引脚比两个扁平引脚更长，确保先接地后通电。' },
+                C: { name: '欧标两脚圆插头', desc: '也称为Europlug，两个圆形引脚。这是欧洲最常见的插头类型，设计精巧，可以适配多种欧洲插座。' },
+                D: { name: '印度标三脚圆插头', desc: '三个圆形引脚呈三角形排列，是旧版英国标准的衍生设计。接地引脚比电源引脚更粗，额定电流通常为6A。' },
+                E: { name: '法标两脚圆插头', desc: '插座有两个圆孔和一个凸出的接地引脚（插座上凸出的PIN）。这种设计使接地先于电源接通，安全性更高。' },
+                F: { name: '德标两脚圆插头', desc: '也称为Schuko插头，两个圆形引脚加上两侧的接地夹。这是欧洲大陆最通用的接地插头标准，额定电流16A。' },
+                G: { name: '英标三脚方插头', desc: '三个长方形引脚呈三角形排列，带有保险丝保护。设计精良，安全性极高。是世界上识别度最高的插头之一。' },
+                H: { name: '以色列标三脚插头', desc: '三个圆形引脚呈Y形排列。独特的以色列标准，现代版本也兼容Type C的扁脚。' },
+                I: { name: '澳标三脚斜插头', desc: '两个斜向的扁平引脚加一个垂直的接地引脚。中国使用的是简化版本，两个扁脚平行排列。' },
+                J: { name: '瑞士标三脚插头', desc: '三个圆形引脚，与Type C类似但增加了接地引脚。插座为六边形设计，可以防止插错方向。' },
+                K: { name: '丹麦标三脚插头', desc: '类似Type E，但接地引脚在插头上而非插座上。丹麦现在也接受Type F插头。' },
+                L: { name: '意大利标三脚圆插头', desc: '三个圆形引脚排成一行。意大利有两种规格：10A（小间距）和16A（大间距）。' },
+                M: { name: '南非标三脚圆插头', desc: '与Type D相似但引脚更大，接地引脚比电源引脚更粗。南非正在逐步过渡到Type N。' },
+                N: { name: '巴西标两脚圆插头', desc: '基于IEC 60906-1国际标准设计。被认为是未来的国际统一标准候选。' },
+                O: { name: '泰国三脚圆插头', desc: '泰国新标准，基于IEC 60906-1国际标准。正在逐步推广中。' }
+            }
+        };
+
+        // Country translations
+        const countryTranslations = {
+            en: {
+                '中国': 'China', '美国': 'USA', '日本': 'Japan', '英国': 'UK', '德国': 'Germany',
+                '法国': 'France', '澳大利亚': 'Australia', '加拿大': 'Canada', '韩国': 'South Korea',
+                '印度': 'India', '巴西': 'Brazil', '俄罗斯': 'Russia', '意大利': 'Italy',
+                '西班牙': 'Spain', '泰国': 'Thailand', '新加坡': 'Singapore', '马来西亚': 'Malaysia',
+                '香港': 'Hong Kong', '台湾': 'Taiwan', '南非': 'South Africa', '墨西哥': 'Mexico',
+                '瑞士': 'Switzerland', '荷兰': 'Netherlands', '瑞典': 'Sweden', '挪威': 'Norway',
+                '丹麦': 'Denmark', '芬兰': 'Finland', '波兰': 'Poland', '土耳其': 'Turkey',
+                '以色列': 'Israel', '阿根廷': 'Argentina', '智利': 'Chile', '新西兰': 'New Zealand',
+                '菲律宾': 'Philippines', '越南': 'Vietnam', '印度尼西亚': 'Indonesia', '埃及': 'Egypt',
+                '尼日利亚': 'Nigeria', '肯尼亚': 'Kenya', '摩洛哥': 'Morocco',
+                '美国': 'USA', '加拿大': 'Canada', '墨西哥': 'Mexico', '日本': 'Japan',
+                '泰国': 'Thailand', '越南': 'Vietnam', '菲律宾': 'Philippines', '哥斯达黎加': 'Costa Rica',
+                '危地马拉': 'Guatemala', '德国': 'Germany', '法国': 'France', '意大利': 'Italy',
+                '西班牙': 'Spain', '荷兰': 'Netherlands', '比利时': 'Belgium', '奥地利': 'Austria',
+                '瑞士': 'Switzerland', '葡萄牙': 'Portugal', '希腊': 'Greece', '土耳其': 'Turkey',
+                '俄罗斯': 'Russia', '印度': 'India', '尼泊尔': 'Nepal', '巴基斯坦': 'Pakistan',
+                '斯里兰卡': 'Sri Lanka', '孟加拉国': 'Bangladesh', '缅甸': 'Myanmar',
+                '波兰': 'Poland', '捷克': 'Czech', '斯洛伐克': 'Slovakia', '突尼斯': 'Tunisia',
+                '摩洛哥': 'Morocco', '奥地利': 'Austria', '荷兰': 'Netherlands', '瑞典': 'Sweden',
+                '挪威': 'Norway', '芬兰': 'Finland', '乌克兰': 'Ukraine', '爱尔兰': 'Ireland',
+                '香港': 'Hong Kong', '新加坡': 'Singapore', '马来西亚': 'Malaysia',
+                '沙特阿拉伯': 'Saudi Arabia', '阿联酋': 'UAE', '卡塔尔': 'Qatar', '以色列': 'Israel',
+                '巴勒斯坦': 'Palestine', '澳大利亚': 'Australia', '新西兰': 'New Zealand',
+                '中国': 'China', '阿根廷': 'Argentina', '巴布亚新几内亚': 'Papua New Guinea',
+                '斐济': 'Fiji', '瑞士': 'Switzerland', '列支敦士登': 'Liechtenstein',
+                '丹麦': 'Denmark', '格陵兰': 'Greenland', '意大利': 'Italy', '智利': 'Chile',
+                '古巴': 'Cuba', '南非': 'South Africa', '斯威士兰': 'Eswatini', '莱索托': 'Lesotho',
+                '博茨瓦纳': 'Botswana', '莫桑比克': 'Mozambique', '巴西': 'Brazil'
+            },
+            zh: {}
+        };
+
+        function t(key) {
+            return translations[currentLang][key] || translations['en'][key] || key;
+        }
+
+        function setLanguage(lang) {
+            currentLang = lang;
+            localStorage.setItem('lang', lang);
+            
+            // Update language buttons
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.lang === lang);
+            });
+            
+            // Update all elements with data-i18n attribute
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.dataset.i18n;
+                if (translations[lang][key]) {
+                    el.textContent = translations[lang][key];
+                }
+            });
+            
+            // Update placeholder
+            const searchInput = document.getElementById('searchInput');
+            if (searchInput) {
+                searchInput.placeholder = t('search_placeholder');
+            }
+            
+            // Re-render dynamic content
+            renderPlugCards();
+            renderCountryTable();
+            
+            // Update static content
+            updateStaticContent();
+        }
+
+        function updateStaticContent() {
+            // Header
+            document.querySelector('.header h1').textContent = t('title');
+            document.querySelector('.header p').textContent = t('subtitle');
+            
+            // Overview section
+            document.querySelector('#overview h2').textContent = t('overview_title');
+            document.querySelectorAll('.stat-label')[0].textContent = t('stat_plug_types');
+            document.querySelectorAll('.stat-label')[1].textContent = t('stat_voltage_standards');
+            document.querySelectorAll('.stat-label')[2].textContent = t('stat_frequency_standards');
+            document.querySelectorAll('.stat-label')[3].textContent = t('stat_countries');
+            
+            // Types section
+            document.querySelector('#types h2').textContent = t('types_title');
+            document.querySelectorAll('.filter-btn')[0].textContent = t('filter_all');
+            document.querySelectorAll('.filter-btn')[1].textContent = t('filter_americas');
+            document.querySelectorAll('.filter-btn')[2].textContent = t('filter_europe');
+            document.querySelectorAll('.filter-btn')[3].textContent = t('filter_asia');
+            document.querySelectorAll('.filter-btn')[4].textContent = t('filter_africa');
+            document.querySelectorAll('.filter-btn')[5].textContent = t('filter_oceania');
+            
+            // Voltage section
+            document.querySelector('#voltage h2').textContent = t('voltage_title');
+            document.querySelector('#voltage h3').textContent = t('voltage_global');
+            document.querySelector('#voltage .voltage-section > p').textContent = t('voltage_intro');
+            
+            // Tips section
+            document.querySelector('#tips h2').textContent = t('tips_title');
+            const tipCards = document.querySelectorAll('.tip-card');
+            tipCards[0].querySelector('h4').textContent = t('tip1_title');
+            tipCards[0].querySelector('p').textContent = t('tip1_desc');
+            tipCards[1].querySelector('h4').textContent = t('tip2_title');
+            tipCards[1].querySelector('p').textContent = t('tip2_desc');
+            tipCards[2].querySelector('h4').textContent = t('tip3_title');
+            tipCards[2].querySelector('p').textContent = t('tip3_desc');
+            tipCards[3].querySelector('h4').textContent = t('tip4_title');
+            tipCards[3].querySelector('p').textContent = t('tip4_desc');
+            
+            // Countries section
+            document.querySelector('#countries h2').textContent = t('countries_title');
+            
+            // Footer
+            document.querySelector('.footer p').textContent = t('footer_title');
+            document.querySelectorAll('.footer p')[1].textContent = t('footer_source');
+        }
+
+        // ========== Plug Types Data ==========
         const plugTypes = [
             {
                 type: 'A',
@@ -1003,20 +1369,26 @@
                     const displayCountries = plug.countries.slice(0, 4);
                     const remainingCount = plug.countries.length - 4;
                     
+                    // Get translated content
+                    const plugTrans = plugTranslations[currentLang][plug.type] || { name: plug.name, desc: plug.description };
+                    const translatedCountries = displayCountries.map(c => 
+                        countryTranslations[currentLang][c] || c
+                    );
+                    
                     card.innerHTML = `
                         <div class="plug-header">
                             <span class="plug-type-badge">${plug.type}</span>
-                            <span class="plug-name">${plug.name}</span>
+                            <span class="plug-name">${plugTrans.name}</span>
                         </div>
                         <div class="plug-svg-container">${plug.svg}</div>
                         <div class="plug-info">
-                            <p><span class="label">电压</span><span class="value">${plug.voltage}</span></p>
-                            <p><span class="label">频率</span><span class="value">${plug.frequency}</span></p>
+                            <p><span class="label">${t('label_voltage')}</span><span class="value">${plug.voltage}</span></p>
+                            <p><span class="label">${t('label_frequency')}</span><span class="value">${plug.frequency}</span></p>
                         </div>
-                        <p class="plug-description">${plug.description}</p>
+                        <p class="plug-description">${plugTrans.desc}</p>
                         <div class="country-tags">
-                            ${displayCountries.map(c => `<span class="country-tag">${c}</span>`).join('')}
-                            ${remainingCount > 0 ? `<span class="country-more">等${plug.countries.length}国</span>` : ''}
+                            ${translatedCountries.map(c => `<span class="country-tag">${c}</span>`).join('')}
+                            ${remainingCount > 0 ? `<span class="country-more">${currentLang === 'en' ? `+${remainingCount} more` : `等${plug.countries.length}国`}</span>` : ''}
                         </div>
                     `;
                     grid.appendChild(card);
@@ -1025,19 +1397,29 @@
 
         function renderCountryTable() {
             const tbody = document.getElementById('countryTable');
-            tbody.innerHTML = countries.map(c => `
+            tbody.innerHTML = countries.map(c => {
+                const translatedName = countryTranslations[currentLang][c.name] || c.name;
+                return `
                 <tr>
-                    <td>${c.name}</td>
+                    <td>${translatedName}</td>
                     <td>${c.plugs}</td>
                     <td>${c.voltage}</td>
                     <td>${c.frequency}</td>
                 </tr>
-            `).join('');
+            `}).join('');
         }
 
         document.addEventListener('DOMContentLoaded', () => {
+            // Initialize language
+            setLanguage(currentLang);
+            
             renderPlugCards();
             renderCountryTable();
+
+            // Language switcher
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.addEventListener('click', () => setLanguage(btn.dataset.lang));
+            });
 
             // Navigation scroll background - show when nav is stuck at top
             const nav = document.querySelector('.nav');
