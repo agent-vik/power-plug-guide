@@ -52,8 +52,15 @@
         .header p {
             font-size: clamp(0.95rem, 1.5vw, 1.15rem);
             color: var(--text-secondary);
-            max-width: 550px;
+            max-width: 650px;
             margin: 0 auto;
+            white-space: nowrap;
+        }
+
+        @media (max-width: 900px) {
+            .header p {
+                white-space: normal;
+            }
         }
 
         /* Navigation */
@@ -272,32 +279,21 @@
             margin-bottom: 15px;
         }
 
-        .voltage-legend {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            margin-top: 25px;
+        .voltage-list {
+            margin-top: 20px;
         }
 
-        .legend-item {
-            display: flex;
-            align-items: center;
-            gap: 12px;
+        .voltage-item {
+            margin-bottom: 12px;
+            padding-left: 0;
         }
 
-        .legend-color {
-            width: 40px;
-            height: 24px;
-            border-radius: 4px;
-            flex-shrink: 0;
-        }
-
-        .legend-item span {
-            color: var(--text-secondary);
-        }
-
-        .legend-item strong {
+        .voltage-item strong {
             color: var(--text-primary);
+        }
+
+        .voltage-item span {
+            color: var(--text-secondary);
         }
 
         .frequency-section {
@@ -307,13 +303,54 @@
         }
 
         /* Comparison Table */
+        .table-container {
+            background: var(--bg-primary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .table-toggle {
+            width: 100%;
+            padding: 18px 24px;
+            background: var(--bg-primary);
+            border: none;
+            color: var(--text-primary);
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.2s;
+        }
+
+        .table-toggle:hover {
+            background: rgba(56, 189, 248, 0.05);
+        }
+
+        .table-toggle-icon {
+            transition: transform 0.3s;
+            color: var(--accent);
+        }
+
+        .table-toggle.expanded .table-toggle-icon {
+            transform: rotate(180deg);
+        }
+
+        .table-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out;
+        }
+
+        .table-content.expanded {
+            max-height: 2000px;
+        }
+
         .comparison-table {
             width: 100%;
             border-collapse: collapse;
-            background: var(--bg-primary);
-            border-radius: 12px;
-            overflow: hidden;
-            border: 1px solid var(--border);
         }
 
         .comparison-table th,
@@ -548,30 +585,18 @@
                 <h3>全球电压分布</h3>
                 <p>世界上主要存在两种电压标准体系，这与历史发展和技术选择密切相关。了解目的地的电压标准对于安全使用电器至关重要。</p>
                 
-                <div class="voltage-legend">
-                    <div class="legend-item">
-                        <div class="legend-color" style="background: #3b82f6;"></div>
-                        <span><strong>100-127V</strong> - 北美、日本、台湾等地区使用较低电压标准</span>
-                    </div>
-                    <div class="legend-item">
-                        <div class="legend-color" style="background: #10b981;"></div>
-                        <span><strong>220-240V</strong> - 欧洲、亚洲、非洲、大洋洲大部分地区使用较高电压标准</span>
-                    </div>
+                <div class="voltage-list">
+                    <p class="voltage-item"><strong>100-127V</strong> <span>— 北美、日本、台湾等地区使用较低电压标准</span></p>
+                    <p class="voltage-item"><strong>220-240V</strong> <span>— 欧洲、亚洲、非洲、大洋洲大部分地区使用较高电压标准</span></p>
                 </div>
                 
                 <div class="frequency-section">
                     <h3>频率标准</h3>
                     <p>全球电网频率主要分为50Hz和60Hz两种标准，这与电力工业发展的历史路径有关。</p>
                     
-                    <div class="voltage-legend">
-                        <div class="legend-item">
-                            <div class="legend-color" style="background: #8b5cf6;"></div>
-                            <span><strong>50Hz</strong> - 全球大多数国家采用的标准频率（欧洲、亚洲、非洲等）</span>
-                        </div>
-                        <div class="legend-item">
-                            <div class="legend-color" style="background: #f59e0b;"></div>
-                            <span><strong>60Hz</strong> - 北美、日本西部、韩国、菲律宾等地区使用</span>
-                        </div>
+                    <div class="voltage-list">
+                        <p class="voltage-item"><strong>50Hz</strong> <span>— 全球大多数国家采用的标准频率（欧洲、亚洲、非洲等）</span></p>
+                        <p class="voltage-item"><strong>60Hz</strong> <span>— 北美、日本西部、韩国、菲律宾等地区使用</span></p>
                     </div>
                 </div>
             </div>
@@ -580,18 +605,24 @@
         <!-- Country Reference Section -->
         <section id="countries">
             <h2>主要国家/地区对照表</h2>
-            <div style="overflow-x: auto;">
-                <table class="comparison-table">
-                    <thead>
-                        <tr>
-                            <th>国家/地区</th>
-                            <th>插座类型</th>
-                            <th>电压</th>
-                            <th>频率</th>
-                        </tr>
-                    </thead>
-                    <tbody id="countryTable"></tbody>
-                </table>
+            <div class="table-container">
+                <button class="table-toggle" id="tableToggle">
+                    <span>点击展开查看完整列表（40个国家/地区）</span>
+                    <span class="table-toggle-icon">▼</span>
+                </button>
+                <div class="table-content" id="tableContent">
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>国家/地区</th>
+                                <th>插座类型</th>
+                                <th>电压</th>
+                                <th>频率</th>
+                            </tr>
+                        </thead>
+                        <tbody id="countryTable"></tbody>
+                    </table>
+                </div>
             </div>
         </section>
 
@@ -624,7 +655,7 @@
         <p>数据来源: IEC国际电工委员会、World Standards</p>
         <p style="margin-top: 15px;">
             Created by <a href="https://github.com/agent-vik" target="_blank">Agent Vik</a> | 
-            <a href="https://github.com/agent-vik/power-plug-guide" target="_blank">GitHub Repository</a>
+            <a href="https://github.com/agent-vik/power-plug-guide" target="_blank">Code</a>
         </p>
     </footer>
 
@@ -955,11 +986,13 @@
             renderPlugCards();
             renderCountryTable();
 
+            // Search functionality
             document.getElementById('searchInput').addEventListener('input', (e) => {
                 const activeFilter = document.querySelector('.filter-btn.active').dataset.filter;
                 renderPlugCards(activeFilter, e.target.value);
             });
 
+            // Filter buttons
             document.querySelectorAll('.filter-btn').forEach(btn => {
                 btn.addEventListener('click', () => {
                     document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
@@ -967,6 +1000,17 @@
                     const searchTerm = document.getElementById('searchInput').value;
                     renderPlugCards(btn.dataset.filter, searchTerm);
                 });
+            });
+
+            // Table toggle
+            const tableToggle = document.getElementById('tableToggle');
+            const tableContent = document.getElementById('tableContent');
+            
+            tableToggle.addEventListener('click', () => {
+                const isExpanded = tableContent.classList.toggle('expanded');
+                tableToggle.classList.toggle('expanded');
+                tableToggle.querySelector('span:first-child').textContent = 
+                    isExpanded ? '点击收起' : '点击展开查看完整列表（40个国家/地区）';
             });
         });
     </script>
